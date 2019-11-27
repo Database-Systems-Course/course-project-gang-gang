@@ -1,6 +1,6 @@
 CREATE TABLE SeasonTime (
   idCategory INTEGER  NOT NULL   IDENTITY ,
-  Type_2 VARCHAR      ,
+  Type_2 VARCHAR(30)      ,
 PRIMARY KEY(idCategory));
 GO
 
@@ -9,8 +9,8 @@ GO
 
 CREATE TABLE Studio (
   idStudio INTEGER  NOT NULL   IDENTITY ,
-  Name VARCHAR    ,
-  Animation Style VARCHAR      ,
+  Name VARCHAR(30)    ,
+  AnimationStyle VARCHAR(30)      ,
 PRIMARY KEY(idStudio));
 GO
 
@@ -28,7 +28,7 @@ GO
 
 CREATE TABLE Genre (
   idGenre INTEGER  NOT NULL   IDENTITY ,
-  Type_2 VARCHAR      ,
+  Type_2 VARCHAR(30)      ,
 PRIMARY KEY(idGenre));
 GO
 
@@ -38,7 +38,7 @@ GO
 CREATE TABLE WatchList (
   idWatchList INTEGER  NOT NULL   IDENTITY ,
   User_2_idUser_2 INTEGER  NOT NULL  ,
-  WatchListName VARCHAR      ,
+  WatchListName VARCHAR(50)      ,
 PRIMARY KEY(idWatchList)  ,
   FOREIGN KEY(User_2_idUser_2)
     REFERENCES User_2(idUser_2));
@@ -56,8 +56,8 @@ GO
 CREATE TABLE MovieSeries (
   idMovies INTEGER  NOT NULL   IDENTITY ,
   Genre_idGenre INTEGER  NOT NULL  ,
-  Name VARCHAR    ,
-  Plot VARCHAR    ,
+  Name VARCHAR(30)    ,
+  Plot VARCHAR(30)    ,
   Dubbed BOOL      ,
 PRIMARY KEY(idMovies)  ,
   FOREIGN KEY(Genre_idGenre)
@@ -116,12 +116,12 @@ GO
 
 
 CREATE TABLE Series (
-  idShow INTEGER  NOT NULL   IDENTITY ,
+  idShow INTEGER  NOT NULL  ,
   Studio_idStudio INTEGER  NOT NULL  ,
   SeasonTime_idCategory INTEGER  NOT NULL  ,
-  Name VARCHAR    ,
-  Plot VARCHAR    ,
-  Status_2 VARCHAR    ,
+  Name VARCHAR(20)    ,
+  Plot VARCHAR(20)    ,
+  Status_2 VARCHAR(20)    ,
   Dubbed BOOL      ,
 PRIMARY KEY(idShow)    ,
   FOREIGN KEY(SeasonTime_idCategory)
