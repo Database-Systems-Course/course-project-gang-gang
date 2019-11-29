@@ -47,11 +47,15 @@
             this.ongoing_check = new System.Windows.Forms.CheckBox();
             this.studio_box = new System.Windows.Forms.ComboBox();
             this.cat_box = new System.Windows.Forms.ComboBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(139, 407);
+            this.button1.Location = new System.Drawing.Point(132, 437);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 25;
@@ -71,7 +75,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(21, 166);
+            this.label3.Location = new System.Drawing.Point(21, 162);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(49, 13);
             this.label3.TabIndex = 20;
@@ -81,7 +85,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(21, 127);
+            this.label2.Location = new System.Drawing.Point(21, 121);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(37, 13);
             this.label2.TabIndex = 18;
@@ -102,7 +106,7 @@
             this.type_box.Items.AddRange(new object[] {
             "Movies",
             "Series"});
-            this.type_box.Location = new System.Drawing.Point(127, 78);
+            this.type_box.Location = new System.Drawing.Point(123, 78);
             this.type_box.Name = "type_box";
             this.type_box.Size = new System.Drawing.Size(144, 21);
             this.type_box.TabIndex = 15;
@@ -111,7 +115,7 @@
             // plot_text
             // 
             this.plot_text.FormattingEnabled = true;
-            this.plot_text.Location = new System.Drawing.Point(24, 344);
+            this.plot_text.Location = new System.Drawing.Point(24, 375);
             this.plot_text.Name = "plot_text";
             this.plot_text.Size = new System.Drawing.Size(277, 56);
             this.plot_text.TabIndex = 28;
@@ -120,7 +124,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(136, 328);
+            this.label5.Location = new System.Drawing.Point(21, 353);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(60, 13);
             this.label5.TabIndex = 29;
@@ -128,14 +132,14 @@
             // 
             // Episode_text
             // 
-            this.Episode_text.Location = new System.Drawing.Point(127, 196);
+            this.Episode_text.Location = new System.Drawing.Point(123, 196);
             this.Episode_text.Name = "Episode_text";
             this.Episode_text.Size = new System.Drawing.Size(150, 20);
             this.Episode_text.TabIndex = 30;
             // 
             // Numberofseasons_text
             // 
-            this.Numberofseasons_text.Location = new System.Drawing.Point(127, 225);
+            this.Numberofseasons_text.Location = new System.Drawing.Point(122, 226);
             this.Numberofseasons_text.Name = "Numberofseasons_text";
             this.Numberofseasons_text.Size = new System.Drawing.Size(150, 20);
             this.Numberofseasons_text.TabIndex = 31;
@@ -168,7 +172,7 @@
             "Spring",
             "Summer",
             "Winter"});
-            this.season_box.Location = new System.Drawing.Point(127, 256);
+            this.season_box.Location = new System.Drawing.Point(123, 256);
             this.season_box.Name = "season_box";
             this.season_box.Size = new System.Drawing.Size(121, 21);
             this.season_box.TabIndex = 35;
@@ -176,7 +180,7 @@
             // 
             // Title_box
             // 
-            this.Title_box.Location = new System.Drawing.Point(128, 39);
+            this.Title_box.Location = new System.Drawing.Point(123, 39);
             this.Title_box.Name = "Title_box";
             this.Title_box.Size = new System.Drawing.Size(150, 20);
             this.Title_box.TabIndex = 23;
@@ -193,7 +197,7 @@
             // dubbed_check
             // 
             this.dubbed_check.AutoSize = true;
-            this.dubbed_check.Location = new System.Drawing.Point(133, 299);
+            this.dubbed_check.Location = new System.Drawing.Point(132, 325);
             this.dubbed_check.Name = "dubbed_check";
             this.dubbed_check.Size = new System.Drawing.Size(64, 17);
             this.dubbed_check.TabIndex = 38;
@@ -203,7 +207,7 @@
             // ongoing_check
             // 
             this.ongoing_check.AutoSize = true;
-            this.ongoing_check.Location = new System.Drawing.Point(24, 299);
+            this.ongoing_check.Location = new System.Drawing.Point(24, 324);
             this.ongoing_check.Name = "ongoing_check";
             this.ongoing_check.Size = new System.Drawing.Size(66, 17);
             this.ongoing_check.TabIndex = 39;
@@ -216,7 +220,7 @@
             this.studio_box.Items.AddRange(new object[] {
             "Movies",
             "Series"});
-            this.studio_box.Location = new System.Drawing.Point(128, 127);
+            this.studio_box.Location = new System.Drawing.Point(124, 121);
             this.studio_box.Name = "studio_box";
             this.studio_box.Size = new System.Drawing.Size(144, 21);
             this.studio_box.TabIndex = 40;
@@ -228,17 +232,53 @@
             this.cat_box.Items.AddRange(new object[] {
             "Movies",
             "Series"});
-            this.cat_box.Location = new System.Drawing.Point(128, 166);
+            this.cat_box.Location = new System.Drawing.Point(124, 162);
             this.cat_box.Name = "cat_box";
             this.cat_box.Size = new System.Drawing.Size(144, 21);
             this.cat_box.TabIndex = 41;
             this.cat_box.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(208, 297);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(26, 13);
+            this.label9.TabIndex = 44;
+            this.label9.Text = "Part";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(123, 290);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(69, 20);
+            this.textBox1.TabIndex = 43;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(252, 291);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(69, 20);
+            this.textBox2.TabIndex = 43;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(21, 294);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(47, 13);
+            this.label11.TabIndex = 44;
+            this.label11.Text = "Duration";
+            // 
             // Addnew
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(367, 442);
+            this.ClientSize = new System.Drawing.Size(352, 472);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.cat_box);
             this.Controls.Add(this.studio_box);
             this.Controls.Add(this.ongoing_check);
@@ -286,5 +326,9 @@
         private System.Windows.Forms.CheckBox ongoing_check;
         private System.Windows.Forms.ComboBox studio_box;
         private System.Windows.Forms.ComboBox cat_box;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Label label11;
     }
 }

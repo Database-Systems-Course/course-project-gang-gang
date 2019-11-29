@@ -80,6 +80,20 @@ namespace WindowsFormsApp5
                 Numberofseasons_text.Text = "";
 
             }
+            if (type_box.SelectedItem == "Series")
+            {
+                studio_box.Text = "";
+                Episode_text.Text = "";
+                season_box.Text = "";
+                Numberofseasons_text.Text = "";
+
+                studio_box.Enabled = false;
+                Episode_text.Enabled = false;
+                season_box.Enabled = false;
+                Numberofseasons_text.Enabled = false;
+
+
+            }
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
