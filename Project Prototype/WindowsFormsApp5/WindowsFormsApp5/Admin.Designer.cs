@@ -28,13 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
+            this.addToDb = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.type_box = new System.Windows.Forms.ComboBox();
-            this.plot_text = new System.Windows.Forms.ListBox();
             this.label5 = new System.Windows.Forms.Label();
             this.Episode_text = new System.Windows.Forms.TextBox();
             this.Numberofseasons_text = new System.Windows.Forms.TextBox();
@@ -48,20 +47,21 @@
             this.studio_box = new System.Windows.Forms.ComboBox();
             this.cat_box = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.Part_box = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
+            this.Time = new System.Windows.Forms.DateTimePicker();
+            this.plot_text = new System.Windows.Forms.RichTextBox();
             this.SuspendLayout();
             // 
-            // button1
+            // addToDb
             // 
-            this.button1.Location = new System.Drawing.Point(132, 437);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 25;
-            this.button1.Text = "Add";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.addToDb.Location = new System.Drawing.Point(132, 437);
+            this.addToDb.Name = "addToDb";
+            this.addToDb.Size = new System.Drawing.Size(75, 23);
+            this.addToDb.TabIndex = 25;
+            this.addToDb.Text = "Add";
+            this.addToDb.UseVisualStyleBackColor = true;
+            this.addToDb.Click += new System.EventHandler(this.button1_Click);
             // 
             // label4
             // 
@@ -111,15 +111,6 @@
             this.type_box.Size = new System.Drawing.Size(144, 21);
             this.type_box.TabIndex = 15;
             this.type_box.SelectedIndexChanged += new System.EventHandler(this.type_box_SelectedIndexChanged);
-            // 
-            // plot_text
-            // 
-            this.plot_text.FormattingEnabled = true;
-            this.plot_text.Location = new System.Drawing.Point(24, 375);
-            this.plot_text.Name = "plot_text";
-            this.plot_text.Size = new System.Drawing.Size(277, 56);
-            this.plot_text.TabIndex = 28;
-            this.plot_text.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
             // label5
             // 
@@ -230,8 +221,14 @@
             // 
             this.cat_box.FormattingEnabled = true;
             this.cat_box.Items.AddRange(new object[] {
-            "Movies",
-            "Series"});
+            "Horror",
+            "Comedy",
+            "Slice of Life",
+            "Robot",
+            "Action",
+            "Romance",
+            "Gore",
+            "Drama"});
             this.cat_box.Location = new System.Drawing.Point(124, 162);
             this.cat_box.Name = "cat_box";
             this.cat_box.Size = new System.Drawing.Size(144, 21);
@@ -241,25 +238,18 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(208, 297);
+            this.label9.Location = new System.Drawing.Point(223, 294);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(26, 13);
             this.label9.TabIndex = 44;
             this.label9.Text = "Part";
             // 
-            // textBox1
+            // Part_box
             // 
-            this.textBox1.Location = new System.Drawing.Point(123, 290);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(69, 20);
-            this.textBox1.TabIndex = 43;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(252, 291);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(69, 20);
-            this.textBox2.TabIndex = 43;
+            this.Part_box.Location = new System.Drawing.Point(255, 291);
+            this.Part_box.Name = "Part_box";
+            this.Part_box.Size = new System.Drawing.Size(69, 20);
+            this.Part_box.TabIndex = 43;
             // 
             // label11
             // 
@@ -270,15 +260,33 @@
             this.label11.TabIndex = 44;
             this.label11.Text = "Duration";
             // 
+            // Time
+            // 
+            this.Time.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.Time.Location = new System.Drawing.Point(122, 291);
+            this.Time.Name = "Time";
+            this.Time.Size = new System.Drawing.Size(95, 20);
+            this.Time.TabIndex = 45;
+            this.Time.Value = new System.DateTime(2019, 11, 29, 18, 31, 0, 0);
+            // 
+            // plot_text
+            // 
+            this.plot_text.Location = new System.Drawing.Point(21, 369);
+            this.plot_text.Name = "plot_text";
+            this.plot_text.Size = new System.Drawing.Size(287, 62);
+            this.plot_text.TabIndex = 46;
+            this.plot_text.Text = "";
+            // 
             // Addnew
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(352, 472);
+            this.Controls.Add(this.plot_text);
+            this.Controls.Add(this.Time);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.Part_box);
             this.Controls.Add(this.cat_box);
             this.Controls.Add(this.studio_box);
             this.Controls.Add(this.ongoing_check);
@@ -290,8 +298,7 @@
             this.Controls.Add(this.Numberofseasons_text);
             this.Controls.Add(this.Episode_text);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.plot_text);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.addToDb);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.Title_box);
             this.Controls.Add(this.label3);
@@ -307,13 +314,12 @@
         }
 
         #endregion
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button addToDb;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox type_box;
-        private System.Windows.Forms.ListBox plot_text;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox Episode_text;
         private System.Windows.Forms.TextBox Numberofseasons_text;
@@ -327,8 +333,9 @@
         private System.Windows.Forms.ComboBox studio_box;
         private System.Windows.Forms.ComboBox cat_box;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox Part_box;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.DateTimePicker Time;
+        private System.Windows.Forms.RichTextBox plot_text;
     }
 }
