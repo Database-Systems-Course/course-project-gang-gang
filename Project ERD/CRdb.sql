@@ -38,7 +38,7 @@ GO
 CREATE TABLE WatchList (
   idWatchList INTEGER  NOT NULL   IDENTITY ,
   User_2_idUser_2 INTEGER  NOT NULL  ,
-  WatchListName VARCHAR(50)      ,
+  WatchListName VARCHAR(500)      ,
 PRIMARY KEY(idWatchList)  ,
   FOREIGN KEY(User_2_idUser_2)
     REFERENCES User_2(idUser_2));
@@ -56,8 +56,8 @@ GO
 CREATE TABLE MovieSeries (
   idMovies INTEGER  NOT NULL   IDENTITY ,
   Genre_idGenre INTEGER  NOT NULL  ,
-  Name VARCHAR(30)    ,
-  Plot VARCHAR(30)    ,
+  Name VARCHAR(50)    ,
+  Plot VARCHAR(200)    ,
   Dubbed BOOL      ,
 PRIMARY KEY(idMovies)  ,
   FOREIGN KEY(Genre_idGenre)
@@ -119,9 +119,9 @@ CREATE TABLE Series (
   idShow INTEGER  NOT NULL  ,
   Studio_idStudio INTEGER  NOT NULL  ,
   SeasonTime_idCategory INTEGER  NOT NULL  ,
-  Name VARCHAR(20)    ,
-  Plot VARCHAR(20)    ,
-  Status_2 VARCHAR(20)    ,
+  Name VARCHAR(50)    ,
+  Plot VARCHAR(500)    ,
+  Status_2 BIT    ,
   Dubbed BOOL      ,
 PRIMARY KEY(idShow)    ,
   FOREIGN KEY(SeasonTime_idCategory)

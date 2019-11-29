@@ -30,11 +30,11 @@ namespace WindowsFormsApp5
 
             while (Reader.Read())
             {
-                listBox1.Items.Add(Reader[1].ToString()+Reader[2].ToString());
+                plot_text.Items.Add(Reader[1].ToString() + Reader[2].ToString());
             }
         }
 
-    private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
@@ -50,6 +50,54 @@ namespace WindowsFormsApp5
         }
 
         private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+
+        }
+
+
+        private void type_box_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (type_box.SelectedItem == "Movies")
+            {
+                studio_box.Text = "";
+                Episode_text.Text = "";
+                season_box.Text = "";
+                Numberofseasons_text.Text = "";
+
+                studio_box.Enabled = false;
+                Episode_text.Enabled = false;
+                season_box.Enabled = false;
+                Numberofseasons_text.Enabled = false;
+
+                Episode_text.Text = "";
+                season_box.Text = "";
+                Numberofseasons_text.Text = "";
+
+            }
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void season_box_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Numberofseasons_text_TextChanged(object sender, EventArgs e)
         {
 
         }
