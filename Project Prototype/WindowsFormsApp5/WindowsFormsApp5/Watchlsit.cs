@@ -12,9 +12,14 @@ namespace WindowsFormsApp5
 {
     public partial class Watchlsit : Form
     {
-        public Watchlsit()
+        int userz;
+        string watchname;
+        public Watchlsit(int userid,string watchlistname)
         {
+            userz = userid;
+            watchname = watchlistname;
             InitializeComponent();
+            // run querry to show watchlist of user having userid = userz and the watchlist name as userz
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -36,6 +41,11 @@ namespace WindowsFormsApp5
         {
             ViewDetails f = new ViewDetails();
             f.Show();
+        }
+
+        private void Watchlsit_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

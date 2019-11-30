@@ -51,7 +51,6 @@
             this.label11 = new System.Windows.Forms.Label();
             this.Time = new System.Windows.Forms.DateTimePicker();
             this.plot_text = new System.Windows.Forms.RichTextBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // addToDb
@@ -142,9 +141,9 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(21, 199);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(79, 13);
+            this.label6.Size = new System.Drawing.Size(85, 13);
             this.label6.TabIndex = 32;
-            this.label6.Text = "No of Episodes";
+            this.label6.Text = "Episode Number";
             this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // label7
@@ -152,9 +151,9 @@
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(21, 232);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(100, 13);
+            this.label7.Size = new System.Drawing.Size(83, 13);
             this.label7.TabIndex = 33;
-            this.label7.Text = "Number of Seasons";
+            this.label7.Text = "Season Number";
             // 
             // season_box
             // 
@@ -278,21 +277,11 @@
             this.plot_text.TabIndex = 46;
             this.plot_text.Text = "";
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(233, 437);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 47;
-            this.button1.Text = "Close";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
             // Addnew
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(352, 472);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.plot_text);
             this.Controls.Add(this.Time);
             this.Controls.Add(this.label11);
@@ -348,6 +337,5 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.DateTimePicker Time;
         private System.Windows.Forms.RichTextBox plot_text;
-        private System.Windows.Forms.Button button1;
     }
 }

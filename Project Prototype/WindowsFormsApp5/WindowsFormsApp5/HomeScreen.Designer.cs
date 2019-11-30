@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.Watchlistbox = new System.Windows.Forms.ListBox();
+            this.typebox = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.listBox2 = new System.Windows.Forms.ListBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.catbox = new System.Windows.Forms.ComboBox();
+            this.titletext = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -44,14 +44,13 @@
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.listBox1);
+            this.groupBox1.Controls.Add(this.Watchlistbox);
             this.groupBox1.Location = new System.Drawing.Point(438, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(148, 380);
@@ -59,24 +58,26 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Watch List";
             // 
-            // listBox1
+            // Watchlistbox
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(13, 21);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(127, 355);
-            this.listBox1.TabIndex = 0;
+            this.Watchlistbox.FormattingEnabled = true;
+            this.Watchlistbox.Location = new System.Drawing.Point(13, 21);
+            this.Watchlistbox.Name = "Watchlistbox";
+            this.Watchlistbox.Size = new System.Drawing.Size(127, 355);
+            this.Watchlistbox.TabIndex = 0;
+            this.Watchlistbox.SelectedIndexChanged += new System.EventHandler(this.ListBox1_SelectedIndexChanged);
             // 
-            // comboBox1
+            // typebox
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.typebox.FormattingEnabled = true;
+            this.typebox.Items.AddRange(new object[] {
             "Series",
             "Movie"});
-            this.comboBox1.Location = new System.Drawing.Point(81, 77);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(144, 21);
-            this.comboBox1.TabIndex = 1;
+            this.typebox.Location = new System.Drawing.Point(81, 77);
+            this.typebox.Name = "typebox";
+            this.typebox.Size = new System.Drawing.Size(144, 21);
+            this.typebox.TabIndex = 1;
+            this.typebox.SelectedIndexChanged += new System.EventHandler(this.ComboBox1_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -115,25 +116,29 @@
             this.label3.TabIndex = 7;
             this.label3.Text = "Category";
             // 
-            // comboBox3
+            // catbox
             // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Items.AddRange(new object[] {
-            "Action",
-            "Drama",
+            this.catbox.FormattingEnabled = true;
+            this.catbox.Items.AddRange(new object[] {
             "Horror",
-            "Romance"});
-            this.comboBox3.Location = new System.Drawing.Point(81, 119);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(144, 21);
-            this.comboBox3.TabIndex = 9;
+            "Comedy",
+            "Slice of Life",
+            "Robot",
+            "Action",
+            "Romance",
+            "Gore",
+            "Drama"});
+            this.catbox.Location = new System.Drawing.Point(81, 119);
+            this.catbox.Name = "catbox";
+            this.catbox.Size = new System.Drawing.Size(144, 21);
+            this.catbox.TabIndex = 9;
             // 
-            // textBox1
+            // titletext
             // 
-            this.textBox1.Location = new System.Drawing.Point(81, 40);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(144, 20);
-            this.textBox1.TabIndex = 10;
+            this.titletext.Location = new System.Drawing.Point(81, 40);
+            this.titletext.Name = "titletext";
+            this.titletext.Size = new System.Drawing.Size(144, 20);
+            this.titletext.TabIndex = 10;
             // 
             // label4
             // 
@@ -152,6 +157,7 @@
             this.button1.TabIndex = 12;
             this.button1.Text = "Add to Watchlist";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.Button1_Click);
             // 
             // button2
             // 
@@ -161,6 +167,7 @@
             this.button2.TabIndex = 13;
             this.button2.Text = "Search";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.Button2_Click);
             // 
             // button3
             // 
@@ -202,21 +209,11 @@
             this.button6.UseVisualStyleBackColor = true;
             this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
-            // button7
-            // 
-            this.button7.Location = new System.Drawing.Point(494, 398);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(75, 23);
-            this.button7.TabIndex = 18;
-            this.button7.Text = "Close";
-            this.button7.UseVisualStyleBackColor = true;
-            // 
             // HomeScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(594, 433);
-            this.Controls.Add(this.button7);
+            this.ClientSize = new System.Drawing.Size(599, 404);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
@@ -224,15 +221,16 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.comboBox3);
+            this.Controls.Add(this.titletext);
+            this.Controls.Add(this.catbox);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.typebox);
             this.Controls.Add(this.groupBox1);
             this.Name = "HomeScreen";
             this.Text = "Home ";
+            this.Load += new System.EventHandler(this.HomeScreen_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -243,14 +241,14 @@
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox typebox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox Watchlistbox;
         private System.Windows.Forms.ListBox listBox2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.ComboBox catbox;
+        private System.Windows.Forms.TextBox titletext;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
@@ -258,7 +256,6 @@
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button7;
     }
 }
 

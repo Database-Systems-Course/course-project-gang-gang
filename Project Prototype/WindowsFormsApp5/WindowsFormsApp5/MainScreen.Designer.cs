@@ -77,6 +77,7 @@ namespace WindowsFormsApp5
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Name = "MainScreen";
+            this.Load += new System.EventHandler(this.MainScreen_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
