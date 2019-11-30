@@ -141,9 +141,9 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(21, 199);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(79, 13);
+            this.label6.Size = new System.Drawing.Size(85, 13);
             this.label6.TabIndex = 32;
-            this.label6.Text = "No of Episodes";
+            this.label6.Text = "Episode Number";
             this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // label7
@@ -151,9 +151,9 @@
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(21, 232);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(100, 13);
+            this.label7.Size = new System.Drawing.Size(83, 13);
             this.label7.TabIndex = 33;
-            this.label7.Text = "Number of Seasons";
+            this.label7.Text = "Season Number";
             // 
             // season_box
             // 

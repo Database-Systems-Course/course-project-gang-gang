@@ -49,24 +49,56 @@ namespace WindowsFormsApp5
         {
             if (type_box.SelectedItem == "Movies")
             {
-
-
                 try
                 {
-                    
+
                     SqlCommand cmd = new SqlCommand();
-                    cmd.CommandText = "Insert MovieSeries values((select idGenre from Genre where type_2=" + cat_box.SelectedItem + " )," + Title_box.Text + ","+ plot_text.Text + " , "+ dubbed_check.Checked + ");";
+
+                    cmd.CommandText = "Insert MovieSeries values((select idGenre from Genre where type_2=" + cat_box.SelectedItem + " )," + Title_box.Text + "," + plot_text.Text + " , " + dubbed_check.Checked + ");";
                     cmd.Connection = conn;
                     cmd.ExecuteNonQuery();
+                    SqlCommand cmd2 = new SqlCommand();
 
-                  
+                    cmd2.CommandText = "Insert into Part values((select idGenre from Genre where type_2=" + cat_box.SelectedItem + " )," + Title_box.Text + "," + plot_text.Text + " , " + dubbed_check.Checked + ");";
+                    cmd2.Connection = conn;
+                    cmd2.ExecuteNonQuery();
+
+
                     MessageBox.Show("Record has been Added successfully!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-             
+
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message);
-                   
+
+                }
+            }
+            else if (type_box.SelectedItem == "Series")
+            {
+                try
+                {
+
+                    SqlCommand cmd = new SqlCommand();
+                    cmd.CommandText = "Insert Series values((select idStudio from Studio where Name=" + studio_box.SelectedItem + " ),(select idCategory from SeasonTime where Tpe_2=" + season_box.SelectedItem + " )," + Title_box.Text + "," + plot_text.Text + " , " + dubbed_check.Checked + ");";
+                    cmd.Connection = conn;
+                    cmd.ExecuteNonQuery();
+                    SqlCommand cmd2 = new SqlCommand();
+                    cmd2.CommandText = "Insert Season values((select idShow from Series where Name ="+Title_box.Text+")," + Numberofseasons_text.Text + ");";
+                    cmd2.Connection = conn;
+                    cmd2.ExecuteNonQuery();
+                    SqlCommand cmd3 = new SqlCommand();
+                    cmd3.CommandText = "Insert Season values((select idseason from season where Series_idshow =(select idShow from Series where name = "+Title_box.Text+"))," + Episode_text.Text + ");";
+                    cmd3.Connection = conn;
+                    cmd3.ExecuteNonQuery();
+
+
+
+                    MessageBox.Show("Record has been Added successfully!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
                 }
             }
         }
