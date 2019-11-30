@@ -47,7 +47,7 @@
             this.studio_box = new System.Windows.Forms.ComboBox();
             this.cat_box = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.Part_box = new System.Windows.Forms.TextBox();
+            this.Part_text = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.Time = new System.Windows.Forms.DateTimePicker();
             this.plot_text = new System.Windows.Forms.RichTextBox();
@@ -244,12 +244,12 @@
             this.label9.TabIndex = 44;
             this.label9.Text = "Part";
             // 
-            // Part_box
+            // Part_text
             // 
-            this.Part_box.Location = new System.Drawing.Point(255, 291);
-            this.Part_box.Name = "Part_box";
-            this.Part_box.Size = new System.Drawing.Size(69, 20);
-            this.Part_box.TabIndex = 43;
+            this.Part_text.Location = new System.Drawing.Point(255, 291);
+            this.Part_text.Name = "Part_text";
+            this.Part_text.Size = new System.Drawing.Size(69, 20);
+            this.Part_text.TabIndex = 43;
             // 
             // label11
             // 
@@ -286,7 +286,7 @@
             this.Controls.Add(this.Time);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.Part_box);
+            this.Controls.Add(this.Part_text);
             this.Controls.Add(this.cat_box);
             this.Controls.Add(this.studio_box);
             this.Controls.Add(this.ongoing_check);
@@ -333,7 +333,7 @@
         private System.Windows.Forms.ComboBox studio_box;
         private System.Windows.Forms.ComboBox cat_box;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox Part_box;
+        private System.Windows.Forms.TextBox Part_text;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.DateTimePicker Time;
         private System.Windows.Forms.RichTextBox plot_text;

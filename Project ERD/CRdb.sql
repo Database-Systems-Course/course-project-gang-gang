@@ -1,7 +1,8 @@
-CREATE TABLE SeasonTime (
-  idCategory INTEGER  NOT NULL   IDENTITY ,
-  Type_2 VARCHAR(30)      ,
-PRIMARY KEY(idCategory));
+CREATE TABLE User_2 (
+  idUser_2 INTEGER  NOT NULL   IDENTITY ,
+  Rank INT    ,
+  password_2 VARCHAR(30)      ,
+PRIMARY KEY(idUser_2));
 GO
 
 
@@ -9,18 +10,9 @@ GO
 
 CREATE TABLE Studio (
   idStudio INTEGER  NOT NULL   IDENTITY ,
-  Name VARCHAR(30)    ,
-  AnimationStyle VARCHAR(30)      ,
+  Name VARCHAR(90)    ,
+  AnimationStyle VARCHAR(90)      ,
 PRIMARY KEY(idStudio));
-GO
-
-
-
-
-CREATE TABLE User_2 (
-  idUser_2 INTEGER  NOT NULL   IDENTITY ,
-  Rank INT      ,
-PRIMARY KEY(idUser_2));
 GO
 
 
@@ -56,9 +48,9 @@ GO
 CREATE TABLE MovieSeries (
   idMovies INTEGER  NOT NULL   IDENTITY ,
   Genre_idGenre INTEGER  NOT NULL  ,
-  Name VARCHAR(50)    ,
-  Plot VARCHAR(200)    ,
-  Dubbed BOOL      ,
+  Name VARCHAR(90)    ,
+  Plot VARCHAR(500)    ,
+  Dubbed BIT      ,
 PRIMARY KEY(idMovies)  ,
   FOREIGN KEY(Genre_idGenre)
     REFERENCES Genre(idGenre));
@@ -74,11 +66,11 @@ GO
 
 
 CREATE TABLE Part (
-  idPasrt INTEGER  NOT NULL   IDENTITY ,
+  idPart INTEGER  NOT NULL   IDENTITY ,
   MovieSeries_idMovies INTEGER  NOT NULL  ,
   Number INTEGER    ,
-  Duration TIME      ,
-PRIMARY KEY(idPasrt)  ,
+  Duration VARCHAR(50)      ,
+PRIMARY KEY(idPart)  ,
   FOREIGN KEY(MovieSeries_idMovies)
     REFERENCES MovieSeries(idMovies));
 GO
@@ -92,95 +84,57 @@ CREATE INDEX IFK_Rel_13 ON Part (MovieSeries_idMovies);
 GO
 
 
-CREATE TABLE MovieSeries_has_WatchList (
-  MovieSeries_idMovies INTEGER  NOT NULL  ,
+CREATE TABLE Part_has_WatchList (
+  Part_idPart INTEGER  NOT NULL  ,
   WatchList_idWatchList INTEGER  NOT NULL    ,
-PRIMARY KEY(MovieSeries_idMovies, WatchList_idWatchList)    ,
-  FOREIGN KEY(MovieSeries_idMovies)
-    REFERENCES MovieSeries(idMovies),
+PRIMARY KEY(Part_idPart, WatchList_idWatchList)    ,
+  FOREIGN KEY(Part_idPart)
+    REFERENCES Part(idPart),
   FOREIGN KEY(WatchList_idWatchList)
     REFERENCES WatchList(idWatchList));
 GO
 
 
-CREATE INDEX Movie Series_has_WatchList_FKIndex1 ON MovieSeries_has_WatchList (MovieSeries_idMovies);
+CREATE INDEX Part_has_WatchList_FKIndex1 ON Part_has_WatchList (Part_idPart);
 GO
-CREATE INDEX Movie Series_has_WatchList_FKIndex2 ON MovieSeries_has_WatchList (WatchList_idWatchList);
+CREATE INDEX Part_has_WatchList_FKIndex2 ON Part_has_WatchList (WatchList_idWatchList);
 GO
 
 
-CREATE INDEX IFK_Rel_13 ON MovieSeries_has_WatchList (MovieSeries_idMovies);
+CREATE INDEX IFK_Rel_13 ON Part_has_WatchList (Part_idPart);
 GO
-CREATE INDEX IFK_Rel_14 ON MovieSeries_has_WatchList (WatchList_idWatchList);
+CREATE INDEX IFK_Rel_14 ON Part_has_WatchList (WatchList_idWatchList);
 GO
 
 
 CREATE TABLE Series (
   idShow INTEGER  NOT NULL  ,
+  Genre_idGenre INTEGER  NOT NULL  ,
   Studio_idStudio INTEGER  NOT NULL  ,
-  SeasonTime_idCategory INTEGER  NOT NULL  ,
-  Name VARCHAR(50)    ,
+  Name VARCHAR(90)    ,
   Plot VARCHAR(500)    ,
   Status_2 BIT    ,
-  Dubbed BOOL      ,
+  Dubbed BIT    ,
+  Number Of Episodes INTEGER    ,
+  Number Of Seasons INTEGER    ,
+  SeasnTime VARCHAR(50)      ,
 PRIMARY KEY(idShow)    ,
-  FOREIGN KEY(SeasonTime_idCategory)
-    REFERENCES SeasonTime(idCategory),
   FOREIGN KEY(Studio_idStudio)
-    REFERENCES Studio(idStudio));
-GO
-
-
-CREATE INDEX Anime_FKIndex1 ON Series (SeasonTime_idCategory);
-GO
-CREATE INDEX Show_2_FKIndex3 ON Series (Studio_idStudio);
-GO
-
-
-CREATE INDEX IFK_Rel_13 ON Series (SeasonTime_idCategory);
-GO
-CREATE INDEX IFK_Rel_24 ON Series (Studio_idStudio);
-GO
-
-
-CREATE TABLE Show_2_has_Genre (
-  Series_idShow INTEGER  NOT NULL  ,
-  Genre_idGenre INTEGER  NOT NULL    ,
-PRIMARY KEY(Series_idShow, Genre_idGenre)    ,
-  FOREIGN KEY(Series_idShow)
-    REFERENCES Series(idShow),
+    REFERENCES Studio(idStudio),
   FOREIGN KEY(Genre_idGenre)
     REFERENCES Genre(idGenre));
 GO
 
 
-CREATE INDEX Show_2_has_Genre_FKIndex1 ON Show_2_has_Genre (Series_idShow);
+CREATE INDEX Show_2_FKIndex3 ON Series (Studio_idStudio);
 GO
-CREATE INDEX Show_2_has_Genre_FKIndex2 ON Show_2_has_Genre (Genre_idGenre);
-GO
-
-
-CREATE INDEX IFK_Rel_20 ON Show_2_has_Genre (Series_idShow);
-GO
-CREATE INDEX IFK_Rel_21 ON Show_2_has_Genre (Genre_idGenre);
+CREATE INDEX Series_FKIndex3 ON Series (Genre_idGenre);
 GO
 
 
-CREATE TABLE Season (
-  idSeason INTEGER  NOT NULL   IDENTITY ,
-  Series_idShow INTEGER  NOT NULL  ,
-  Number INTEGER      ,
-PRIMARY KEY(idSeason)  ,
-  FOREIGN KEY(Series_idShow)
-    REFERENCES Series(idShow));
+CREATE INDEX IFK_Rel_24 ON Series (Studio_idStudio);
 GO
-
-
-CREATE INDEX Season_FKIndex1 ON Season (Series_idShow);
-GO
-
-
-CREATE INDEX IFK_Rel_16 ON Season (Series_idShow);
+CREATE INDEX IFK_Rel_14 ON Series (Genre_idGenre);
 GO
 
 
@@ -204,24 +158,6 @@ GO
 CREATE INDEX IFK_Rel_11 ON WatchList_has_Anime (WatchList_idWatchList);
 GO
 CREATE INDEX IFK_Rel_12 ON WatchList_has_Anime (Series_idShow);
-GO
-
-
-CREATE TABLE Episode (
-  idEpisode INTEGER  NOT NULL  ,
-  Season_idSeason INTEGER    ,
-  Number INTEGER      ,
-PRIMARY KEY(idEpisode)  ,
-  FOREIGN KEY(Season_idSeason)
-    REFERENCES Season(idSeason));
-GO
-
-
-CREATE INDEX Episode_FKIndex1 ON Episode (Season_idSeason);
-GO
-
-
-CREATE INDEX IFK_Rel_15 ON Episode (Season_idSeason);
 GO
 
 
