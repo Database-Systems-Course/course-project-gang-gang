@@ -11,18 +11,15 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 namespace WindowsFormsApp5
 {
-    public partial class Addnew : Form
+    public partial class Addnew : Form 
     {
         SqlConnection conn;
-        public Addnew()
+        public Addnew(int text)
         {
             InitializeComponent();
-            conn = new SqlConnection();
-            conn.ConnectionString = " Data Source = AHSANPC; Initial Catalog = A7; Integrated Security = True";
-            conn.Open();
-
-
-       
+            //conn = new SqlConnection();
+            //conn.ConnectionString = " Data Source = AHSANPC; Initial Catalog = A7; Integrated Security = True";
+            //conn.Open();      
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -47,7 +44,7 @@ namespace WindowsFormsApp5
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (type_box.SelectedItem == "Movies")
+            if (type_box.SelectedItem.ToString() == "Movies")
             {
                 try
                 {
@@ -73,7 +70,7 @@ namespace WindowsFormsApp5
 
                 }
             }
-            else if (type_box.SelectedItem == "Series")
+            else if (type_box.SelectedItem.ToString() == "Series")
             {
                 try
                 {
@@ -87,7 +84,7 @@ namespace WindowsFormsApp5
                     cmd2.Connection = conn;
                     cmd2.ExecuteNonQuery();
                     SqlCommand cmd3 = new SqlCommand();
-                    cmd3.CommandText = "Insert Season values((select idseason from season where Series_idshow =(select idShow from Series where name = "+Title_box.Text+"))," + Episode_text.Text + ");";
+                    cmd3.CommandText = "Insert Episode values((select idseason from season where Series_idshow =(select idShow from Series where name = "+Title_box.Text+"))," + Episode_text.Text + ");";
                     cmd3.Connection = conn;
                     cmd3.ExecuteNonQuery();
 
@@ -106,7 +103,7 @@ namespace WindowsFormsApp5
 
         private void type_box_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (type_box.SelectedItem == "Movies")
+            if (type_box.SelectedItem.ToString() == "Movies")
             {
                 studio_box.Text = "";
                 Episode_text.Text = "";
@@ -127,7 +124,7 @@ namespace WindowsFormsApp5
                 Numberofseasons_text.Text = "";
 
             }
-            if (type_box.SelectedItem == "Series")
+            if (type_box.SelectedItem.ToString() == "Series")
             {
                 studio_box.Enabled = true;
                 Episode_text.Enabled = true;

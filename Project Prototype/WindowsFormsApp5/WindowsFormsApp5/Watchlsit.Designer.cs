@@ -85,6 +85,7 @@
             this.Controls.Add(this.listBox1);
             this.Name = "Watchlsit";
             this.Text = "Form2";
+            this.Load += new System.EventHandler(this.Watchlsit_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

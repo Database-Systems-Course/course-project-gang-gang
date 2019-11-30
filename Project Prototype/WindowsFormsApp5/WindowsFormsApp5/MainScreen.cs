@@ -31,9 +31,12 @@ namespace WindowsFormsApp5
 
         private void button1_Click(object sender, EventArgs e)
         {
-            HomeScreen f = new HomeScreen();
-            f.Show();
-            this.Hide();
+            
+        }
+
+        private void MainScreen_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
