@@ -1,18 +1,18 @@
-CREATE TABLE User_2 (
-  idUser_2 INTEGER  NOT NULL   IDENTITY ,
-  Rank INT    ,
-  password_2 VARCHAR(30)      ,
-PRIMARY KEY(idUser_2));
-GO
-
-
-
-
 CREATE TABLE Studio (
   idStudio INTEGER  NOT NULL   IDENTITY ,
   Name VARCHAR(90)    ,
   AnimationStyle VARCHAR(90)      ,
 PRIMARY KEY(idStudio));
+GO
+
+
+
+
+CREATE TABLE User_2 (
+  idUser_2 INTEGER  NOT NULL   IDENTITY ,
+  Rank INT    ,
+  password_2 VARCHAR(30)      ,
+PRIMARY KEY(idUser_2));
 GO
 
 
@@ -65,48 +65,6 @@ CREATE INDEX IFK_Rel_14 ON MovieSeries (Genre_idGenre);
 GO
 
 
-CREATE TABLE Part (
-  idPart INTEGER  NOT NULL   IDENTITY ,
-  MovieSeries_idMovies INTEGER  NOT NULL  ,
-  Number INTEGER    ,
-  Duration VARCHAR(50)      ,
-PRIMARY KEY(idPart)  ,
-  FOREIGN KEY(MovieSeries_idMovies)
-    REFERENCES MovieSeries(idMovies));
-GO
-
-
-CREATE INDEX Part_FKIndex1 ON Part (MovieSeries_idMovies);
-GO
-
-
-CREATE INDEX IFK_Rel_13 ON Part (MovieSeries_idMovies);
-GO
-
-
-CREATE TABLE Part_has_WatchList (
-  Part_idPart INTEGER  NOT NULL  ,
-  WatchList_idWatchList INTEGER  NOT NULL    ,
-PRIMARY KEY(Part_idPart, WatchList_idWatchList)    ,
-  FOREIGN KEY(Part_idPart)
-    REFERENCES Part(idPart),
-  FOREIGN KEY(WatchList_idWatchList)
-    REFERENCES WatchList(idWatchList));
-GO
-
-
-CREATE INDEX Part_has_WatchList_FKIndex1 ON Part_has_WatchList (Part_idPart);
-GO
-CREATE INDEX Part_has_WatchList_FKIndex2 ON Part_has_WatchList (WatchList_idWatchList);
-GO
-
-
-CREATE INDEX IFK_Rel_13 ON Part_has_WatchList (Part_idPart);
-GO
-CREATE INDEX IFK_Rel_14 ON Part_has_WatchList (WatchList_idWatchList);
-GO
-
-
 CREATE TABLE Series (
   idShow INTEGER  NOT NULL  ,
   Genre_idGenre INTEGER  NOT NULL  ,
@@ -135,6 +93,48 @@ GO
 CREATE INDEX IFK_Rel_24 ON Series (Studio_idStudio);
 GO
 CREATE INDEX IFK_Rel_14 ON Series (Genre_idGenre);
+GO
+
+
+CREATE TABLE Part (
+  idPart INTEGER  NOT NULL   IDENTITY ,
+  MovieSeries_idMovies INTEGER  NOT NULL  ,
+  Number INTEGER    ,
+  Duration VARCHAR(50)      ,
+PRIMARY KEY(idPart)  ,
+  FOREIGN KEY(MovieSeries_idMovies)
+    REFERENCES MovieSeries(idMovies));
+GO
+
+
+CREATE INDEX Part_FKIndex1 ON Part (MovieSeries_idMovies);
+GO
+
+
+CREATE INDEX IFK_Rel_13 ON Part (MovieSeries_idMovies);
+GO
+
+
+CREATE TABLE Watchlist_has_Part (
+  Part_idPart INTEGER  NOT NULL  ,
+  WatchList_idWatchList INTEGER  NOT NULL    ,
+PRIMARY KEY(Part_idPart, WatchList_idWatchList)    ,
+  FOREIGN KEY(Part_idPart)
+    REFERENCES Part(idPart),
+  FOREIGN KEY(WatchList_idWatchList)
+    REFERENCES WatchList(idWatchList));
+GO
+
+
+CREATE INDEX Part_has_WatchList_FKIndex1 ON Watchlist_has_Part (Part_idPart);
+GO
+CREATE INDEX Part_has_WatchList_FKIndex2 ON Watchlist_has_Part (WatchList_idWatchList);
+GO
+
+
+CREATE INDEX IFK_Rel_13 ON Watchlist_has_Part (Part_idPart);
+GO
+CREATE INDEX IFK_Rel_14 ON Watchlist_has_Part (WatchList_idWatchList);
 GO
 
 

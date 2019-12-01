@@ -115,6 +115,7 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "AdminLogin";
             this.Text = "Form2";
+            this.Load += new System.EventHandler(this.AdminLogin_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
