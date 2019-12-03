@@ -56,18 +56,24 @@ namespace WindowsFormsApp5
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (textBox1.Text == "1" && textBox2.Text == "123")
+            DBconnectioncs c = new DBconnectioncs();
+            DataTable d = c.Select("Select * from User_2");
+            for (int i = 0; i < d.length; i++)
             {
-                Addnew f = new Addnew(Int32.Parse(textBox1.Text));
-                f.Show();
-                this.Hide();
+                MessageBox.Show(d.Rows[i][1].ToString());
             }
-            else
-            {
-                HomeScreen f = new HomeScreen(Int32.Parse(textBox1.Text));
-                f.Show();
-                this.Hide();
-            }
+            //if (textBox1.Text == "1" && textBox2.Text == "123")
+            //{
+            //    Addnew f = new Addnew(Int32.Parse(textBox1.Text));
+            //    f.Show();
+            //    this.Hide();
+            //}
+            //else
+            //{
+            //    HomeScreen f = new HomeScreen(Int32.Parse(textBox1.Text));
+            //    f.Show();
+            //    this.Hide();
+            //}
 
         }
 

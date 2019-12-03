@@ -30,32 +30,32 @@ namespace WindowsFormsApp5
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.UserButton = new System.Windows.Forms.Button();
+            this.AdminButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // button1
+            // UserButton
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.button1.Location = new System.Drawing.Point(142, 77);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(156, 63);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Enter as User";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.UserButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.UserButton.Location = new System.Drawing.Point(142, 77);
+            this.UserButton.Name = "UserButton";
+            this.UserButton.Size = new System.Drawing.Size(156, 63);
+            this.UserButton.TabIndex = 0;
+            this.UserButton.Text = "Enter as User";
+            this.UserButton.UseVisualStyleBackColor = true;
+            this.UserButton.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button2
+            // AdminButton
             // 
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.button2.Location = new System.Drawing.Point(142, 159);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(156, 62);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Enter as Admin";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.AdminButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.AdminButton.Location = new System.Drawing.Point(142, 159);
+            this.AdminButton.Name = "AdminButton";
+            this.AdminButton.Size = new System.Drawing.Size(156, 62);
+            this.AdminButton.TabIndex = 1;
+            this.AdminButton.Text = "Enter as Admin";
+            this.AdminButton.UseVisualStyleBackColor = true;
+            this.AdminButton.Click += new System.EventHandler(this.button2_Click);
             // 
             // label1
             // 
@@ -74,8 +74,8 @@ namespace WindowsFormsApp5
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(449, 248);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.AdminButton);
+            this.Controls.Add(this.UserButton);
             this.Name = "MainScreen";
             this.Load += new System.EventHandler(this.MainScreen_Load);
             this.ResumeLayout(false);
@@ -85,8 +85,8 @@ namespace WindowsFormsApp5
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button UserButton;
+        private System.Windows.Forms.Button AdminButton;
         private System.Windows.Forms.Label label1;
     }
 }

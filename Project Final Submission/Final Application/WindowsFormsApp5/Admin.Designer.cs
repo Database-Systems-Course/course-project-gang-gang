@@ -51,6 +51,7 @@
             this.label11 = new System.Windows.Forms.Label();
             this.Time = new System.Windows.Forms.DateTimePicker();
             this.plot_text = new System.Windows.Forms.RichTextBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // addToDb
@@ -66,7 +67,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(21, 46);
+            this.label4.Location = new System.Drawing.Point(21, 84);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(27, 13);
             this.label4.TabIndex = 24;
@@ -94,7 +95,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(21, 81);
+            this.label1.Location = new System.Drawing.Point(21, 45);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(31, 13);
             this.label1.TabIndex = 16;
@@ -106,7 +107,7 @@
             this.type_box.Items.AddRange(new object[] {
             "Movies",
             "Series"});
-            this.type_box.Location = new System.Drawing.Point(123, 78);
+            this.type_box.Location = new System.Drawing.Point(124, 40);
             this.type_box.Name = "type_box";
             this.type_box.Size = new System.Drawing.Size(144, 21);
             this.type_box.TabIndex = 15;
@@ -125,14 +126,14 @@
             // 
             this.Episode_text.Location = new System.Drawing.Point(123, 196);
             this.Episode_text.Name = "Episode_text";
-            this.Episode_text.Size = new System.Drawing.Size(150, 20);
+            this.Episode_text.Size = new System.Drawing.Size(145, 20);
             this.Episode_text.TabIndex = 30;
             // 
             // Numberofseasons_text
             // 
             this.Numberofseasons_text.Location = new System.Drawing.Point(122, 226);
             this.Numberofseasons_text.Name = "Numberofseasons_text";
-            this.Numberofseasons_text.Size = new System.Drawing.Size(150, 20);
+            this.Numberofseasons_text.Size = new System.Drawing.Size(146, 20);
             this.Numberofseasons_text.TabIndex = 31;
             this.Numberofseasons_text.TextChanged += new System.EventHandler(this.Numberofseasons_text_TextChanged);
             // 
@@ -165,15 +166,15 @@
             "Winter"});
             this.season_box.Location = new System.Drawing.Point(123, 256);
             this.season_box.Name = "season_box";
-            this.season_box.Size = new System.Drawing.Size(121, 21);
+            this.season_box.Size = new System.Drawing.Size(145, 21);
             this.season_box.TabIndex = 35;
             this.season_box.SelectedIndexChanged += new System.EventHandler(this.season_box_SelectedIndexChanged);
             // 
             // Title_box
             // 
-            this.Title_box.Location = new System.Drawing.Point(123, 39);
+            this.Title_box.Location = new System.Drawing.Point(124, 81);
             this.Title_box.Name = "Title_box";
-            this.Title_box.Size = new System.Drawing.Size(150, 20);
+            this.Title_box.Size = new System.Drawing.Size(144, 20);
             this.Title_box.TabIndex = 23;
             // 
             // label8
@@ -209,8 +210,8 @@
             // 
             this.studio_box.FormattingEnabled = true;
             this.studio_box.Items.AddRange(new object[] {
-            "Movies",
-            "Series"});
+            "KyoAni",
+            "Ghibli"});
             this.studio_box.Location = new System.Drawing.Point(124, 121);
             this.studio_box.Name = "studio_box";
             this.studio_box.Size = new System.Drawing.Size(144, 21);
@@ -277,11 +278,22 @@
             this.plot_text.TabIndex = 46;
             this.plot_text.Text = "";
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(233, 437);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 47;
+            this.button1.Text = "Close";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
             // Addnew
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(352, 472);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.plot_text);
             this.Controls.Add(this.Time);
             this.Controls.Add(this.label11);
@@ -306,7 +318,6 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.type_box);
             this.Name = "Addnew";
-            this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -337,5 +348,6 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.DateTimePicker Time;
         private System.Windows.Forms.RichTextBox plot_text;
+        private System.Windows.Forms.Button button1;
     }
 }

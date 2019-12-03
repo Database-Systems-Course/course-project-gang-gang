@@ -10,7 +10,7 @@ namespace WindowsFormsApp5
 {
     class DBconnectioncs 
     {
-        public SqlConnection conn = new SqlConnection(@"Data Source = AHSANPC; Initial Catalog = A7; Integrated Security = True");
+        public SqlConnection conn = new SqlConnection(@"Data Source = AHSANPC; Initial Catalog = A8; Integrated Security = True");
         public SqlCommand cmd = new SqlCommand();
 
         public DBconnectioncs()

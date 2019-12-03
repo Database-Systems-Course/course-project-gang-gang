@@ -14,13 +14,13 @@ namespace WindowsFormsApp5
 {
     public partial class Addnew : Form 
     {
-        SqlConnection conn;
-        public Addnew(int text)
+        SqlConnection con;
+        public Addnew()
         {
             InitializeComponent();
-            conn = new SqlConnection();
-            conn.ConnectionString = " Data Source = AHSANPC; Initial Catalog = A7; Integrated Security = True";
-            conn.Open();      
+            con = new SqlConnection();
+            con.ConnectionString = " Data Source = AHSANPC; Initial Catalog = A8; Integrated Security = True";
+            con.Open();      
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -49,29 +49,20 @@ namespace WindowsFormsApp5
             {
                 try
                 {
-                    DBconnectioncs c = new DBconnectioncs();
-                    DataTable d = c.Select("Select * from Genre");
-                   
-                        MessageBox.Show(d.Rows.ToString());
-                       
-                        //dataGridView1.DataSource = d;
-                        //DbConnection c = new DBconnectioncs();
-                        //DataTable dt = c.Select("SELECT COUNT(*) FROM operator WHERE username = '" + UName.Text + "' AND pass = '" + PWord.Text + "'");
+
+                    string qry = "Insert into MovieSeries(Genre_idGenre,Name,Plot,Dubbed) values((select idGenre from Genre where type_2= @categ ), @title  ,@plot    ,@dubbed  );";
+                    SqlCommand cmd = new SqlCommand(qry, con);
+                    cmd.CommandType = CommandType.Text;
+                    cmd.Parameters.AddWithValue("@categ", cat_box.SelectedItem.ToString());
+                    cmd.Parameters.AddWithValue("@title", Title_box.Text.ToString());
+                    cmd.Parameters.AddWithValue("@plot", plot_text.Text.ToString());
+                    cmd.Parameters.AddWithValue("@dubbed", dubbed_check.Checked);
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Added Successfully!!");
 
 
 
-
-                        // SqlCommand cmd = new SqlCommand();
-                        //cmd.CommandText = "Insert into MovieSeries(Genre_idGenre,Name,Plot,Dubbed) values((select idGenre from Genre where type_2=" + cat_box.SelectedItem + " )," + Title_box.Text + "," + plot_text.Text + " , " + dubbed_check.Checked + ");";
-                        //cmd.Connection = conn;
-                        //cmd.ExecuteNonQuery();
-                        //SqlCommand cmd2 = new SqlCommand();
-
-
-
-                        //MessageBox.Show("Record has been Added successfully!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                    }
+                }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message);
@@ -82,17 +73,25 @@ namespace WindowsFormsApp5
             {
                 try
                 {
-
-                    SqlCommand cmd = new SqlCommand();
-                    cmd.CommandText = "Insert Series values((select idStudio from Studio where Name=" + studio_box.SelectedItem + " ),(select idCategory from SeasonTime where Tpe_2=" + season_box.SelectedItem + " )," + Title_box.Text + "," + plot_text.Text + " , " + dubbed_check.Checked + ");";
-                    cmd.Connection = conn;
+                    string qry = "Insert into Series(idShow,Genre_idGenre,Studio_idStudio,Name,Plot,Status_2,Dubbed,NumberOfEpisodes,NumberOfSeasons,SeasnTime) values(45,(select idGenre from Genre where type_2=@categ ),(select idStudio from Studio where Name=@studio ),@title, @plot,@status, @dubbed, @noe,@nos,@season);";
+                    SqlCommand cmd = new SqlCommand(qry, con);
+                    cmd.CommandType = CommandType.Text;
+                    cmd.Parameters.AddWithValue("@categ", cat_box.SelectedItem.ToString());
+                    cmd.Parameters.AddWithValue("@title", Title_box.Text.ToString());
+                    cmd.Parameters.AddWithValue("@plot", plot_text.Text.ToString());
+                    cmd.Parameters.AddWithValue("@dubbed", dubbed_check.Checked);
+                    cmd.Parameters.AddWithValue("@studio", studio_box.SelectedItem.ToString());
+                    cmd.Parameters.AddWithValue("@status", ongoing_check.Checked);
+                    cmd.Parameters.AddWithValue("@noe", Episode_text.Text.ToString());
+                    cmd.Parameters.AddWithValue("@nos", Numberofseasons_text.Text.ToString());
+                    cmd.Parameters.AddWithValue("@season", season_box.SelectedItem.ToString());
                     cmd.ExecuteNonQuery();
-                    MessageBox.Show("Record has been Added successfully!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
+                    MessageBox.Show("Added Successfully!!");
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message);
+
                 }
             }
         }
@@ -164,6 +163,11 @@ namespace WindowsFormsApp5
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            this.Hide();
         }
     }
 }

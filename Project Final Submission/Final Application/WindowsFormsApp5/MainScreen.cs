@@ -24,14 +24,16 @@ namespace WindowsFormsApp5
 
         private void button2_Click(object sender, EventArgs e)
         {
-            AdminLogin f = new AdminLogin();
+            AdminLogin f = new AdminLogin(0);
             f.Show();
             this.Hide();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
+            AdminLogin f = new AdminLogin(1);
+            f.Show();
+            this.Hide();
         }
 
         private void MainScreen_Load(object sender, EventArgs e)

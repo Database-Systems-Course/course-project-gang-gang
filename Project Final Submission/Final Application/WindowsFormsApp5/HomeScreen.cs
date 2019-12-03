@@ -13,9 +13,9 @@ namespace WindowsFormsApp5
     public partial class HomeScreen : Form
     { int userz;
         SqlConnection conn;
-        public HomeScreen(int userid) {
+        public HomeScreen() {
         
-            userz= userid;
+           // userz= userid;
             InitializeComponent();
             //make watchlistbox populate with all the watch list names from user having user id userz
             //conn = new SqlConnection();

@@ -21,7 +21,7 @@ namespace WindowsFormsApp5
 
         private void button1_Click(object sender, EventArgs e)
         {   
-            HomeScreen f = new HomeScreen(userz);
+            HomeScreen f = new HomeScreen();
             // add watchlist to user having userid=userz and watchlist name as textbox
             f.Show();
             this.Hide();
