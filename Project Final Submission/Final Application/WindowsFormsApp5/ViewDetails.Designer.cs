@@ -29,46 +29,52 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.dubbecheck = new System.Windows.Forms.CheckBox();
+            this.ongoingcheck = new System.Windows.Forms.CheckBox();
+            this.type = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.numberepisodes = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.seasonnumber = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.plot = new System.Windows.Forms.ListBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.season = new System.Windows.Forms.TextBox();
+            this.studio = new System.Windows.Forms.TextBox();
+            this.Cat = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.Title = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.part = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.duration = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.checkBox3);
-            this.groupBox1.Controls.Add(this.checkBox2);
-            this.groupBox1.Controls.Add(this.checkBox1);
-            this.groupBox1.Controls.Add(this.textBox5);
+            this.groupBox1.Controls.Add(this.duration);
+            this.groupBox1.Controls.Add(this.label7);
+            this.groupBox1.Controls.Add(this.part);
+            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.dubbecheck);
+            this.groupBox1.Controls.Add(this.ongoingcheck);
+            this.groupBox1.Controls.Add(this.type);
             this.groupBox1.Controls.Add(this.label10);
-            this.groupBox1.Controls.Add(this.textBox8);
+            this.groupBox1.Controls.Add(this.numberepisodes);
             this.groupBox1.Controls.Add(this.label9);
-            this.groupBox1.Controls.Add(this.textBox7);
+            this.groupBox1.Controls.Add(this.seasonnumber);
             this.groupBox1.Controls.Add(this.label8);
-            this.groupBox1.Controls.Add(this.listBox1);
+            this.groupBox1.Controls.Add(this.plot);
             this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.textBox4);
-            this.groupBox1.Controls.Add(this.textBox3);
-            this.groupBox1.Controls.Add(this.textBox2);
+            this.groupBox1.Controls.Add(this.season);
+            this.groupBox1.Controls.Add(this.studio);
+            this.groupBox1.Controls.Add(this.Cat);
             this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.Title);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
@@ -77,44 +83,35 @@
             this.groupBox1.Size = new System.Drawing.Size(398, 400);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
-            // checkBox3
+            // dubbecheck
             // 
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.Location = new System.Drawing.Point(52, 160);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(66, 17);
-            this.checkBox3.TabIndex = 38;
-            this.checkBox3.Text = "Subbed ";
-            this.checkBox3.UseVisualStyleBackColor = true;
+            this.dubbecheck.AutoSize = true;
+            this.dubbecheck.Location = new System.Drawing.Point(52, 184);
+            this.dubbecheck.Name = "dubbecheck";
+            this.dubbecheck.Size = new System.Drawing.Size(67, 17);
+            this.dubbecheck.TabIndex = 37;
+            this.dubbecheck.Text = "Dubbed ";
+            this.dubbecheck.UseVisualStyleBackColor = true;
             // 
-            // checkBox2
+            // ongoingcheck
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(52, 137);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(67, 17);
-            this.checkBox2.TabIndex = 37;
-            this.checkBox2.Text = "Dubbed ";
-            this.checkBox2.UseVisualStyleBackColor = true;
+            this.ongoingcheck.AutoSize = true;
+            this.ongoingcheck.Location = new System.Drawing.Point(52, 161);
+            this.ongoingcheck.Name = "ongoingcheck";
+            this.ongoingcheck.Size = new System.Drawing.Size(69, 17);
+            this.ongoingcheck.TabIndex = 36;
+            this.ongoingcheck.Text = "Ongoing ";
+            this.ongoingcheck.UseVisualStyleBackColor = true;
+            this.ongoingcheck.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
-            // checkBox1
+            // type
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(52, 114);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(69, 17);
-            this.checkBox1.TabIndex = 36;
-            this.checkBox1.Text = "Ongoing ";
-            this.checkBox1.UseVisualStyleBackColor = true;
-            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
-            // 
-            // textBox5
-            // 
-            this.textBox5.Location = new System.Drawing.Point(251, 114);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(118, 20);
-            this.textBox5.TabIndex = 35;
+            this.type.Location = new System.Drawing.Point(251, 114);
+            this.type.Name = "type";
+            this.type.Size = new System.Drawing.Size(118, 20);
+            this.type.TabIndex = 35;
             // 
             // label10
             // 
@@ -125,12 +122,12 @@
             this.label10.TabIndex = 34;
             this.label10.Text = "Season Time";
             // 
-            // textBox8
+            // numberepisodes
             // 
-            this.textBox8.Location = new System.Drawing.Point(251, 346);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(118, 20);
-            this.textBox8.TabIndex = 33;
+            this.numberepisodes.Location = new System.Drawing.Point(251, 346);
+            this.numberepisodes.Name = "numberepisodes";
+            this.numberepisodes.Size = new System.Drawing.Size(118, 20);
+            this.numberepisodes.TabIndex = 33;
             // 
             // label9
             // 
@@ -141,12 +138,12 @@
             this.label9.TabIndex = 32;
             this.label9.Text = "Number of Episodes";
             // 
-            // textBox7
+            // seasonnumber
             // 
-            this.textBox7.Location = new System.Drawing.Point(52, 346);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(118, 20);
-            this.textBox7.TabIndex = 31;
+            this.seasonnumber.Location = new System.Drawing.Point(52, 346);
+            this.seasonnumber.Name = "seasonnumber";
+            this.seasonnumber.Size = new System.Drawing.Size(118, 20);
+            this.seasonnumber.TabIndex = 31;
             // 
             // label8
             // 
@@ -157,44 +154,44 @@
             this.label8.TabIndex = 30;
             this.label8.Text = "Number of Seasons";
             // 
-            // listBox1
+            // plot
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(52, 213);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(317, 95);
-            this.listBox1.TabIndex = 27;
+            this.plot.FormattingEnabled = true;
+            this.plot.Location = new System.Drawing.Point(52, 213);
+            this.plot.Name = "plot";
+            this.plot.Size = new System.Drawing.Size(317, 95);
+            this.plot.TabIndex = 27;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(190, 188);
+            this.label6.Location = new System.Drawing.Point(192, 188);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(25, 13);
             this.label6.TabIndex = 26;
             this.label6.Text = "Plot";
             this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
-            // textBox4
+            // season
             // 
-            this.textBox4.Location = new System.Drawing.Point(251, 78);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(118, 20);
-            this.textBox4.TabIndex = 23;
+            this.season.Location = new System.Drawing.Point(251, 78);
+            this.season.Name = "season";
+            this.season.Size = new System.Drawing.Size(118, 20);
+            this.season.TabIndex = 23;
             // 
-            // textBox3
+            // studio
             // 
-            this.textBox3.Location = new System.Drawing.Point(52, 78);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(118, 20);
-            this.textBox3.TabIndex = 22;
+            this.studio.Location = new System.Drawing.Point(52, 78);
+            this.studio.Name = "studio";
+            this.studio.Size = new System.Drawing.Size(118, 20);
+            this.studio.TabIndex = 22;
             // 
-            // textBox2
+            // Cat
             // 
-            this.textBox2.Location = new System.Drawing.Point(251, 38);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(118, 20);
-            this.textBox2.TabIndex = 21;
+            this.Cat.Location = new System.Drawing.Point(251, 38);
+            this.Cat.Name = "Cat";
+            this.Cat.Size = new System.Drawing.Size(118, 20);
+            this.Cat.TabIndex = 21;
             // 
             // label4
             // 
@@ -206,12 +203,13 @@
             this.label4.Text = "Title";
             this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
-            // textBox1
+            // Title
             // 
-            this.textBox1.Location = new System.Drawing.Point(52, 35);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(118, 20);
-            this.textBox1.TabIndex = 19;
+            this.Title.Location = new System.Drawing.Point(52, 35);
+            this.Title.Name = "Title";
+            this.Title.Size = new System.Drawing.Size(118, 20);
+            this.Title.TabIndex = 19;
+            this.Title.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // label3
             // 
@@ -240,6 +238,38 @@
             this.label1.TabIndex = 13;
             this.label1.Text = "Type";
             // 
+            // part
+            // 
+            this.part.Location = new System.Drawing.Point(52, 118);
+            this.part.Name = "part";
+            this.part.Size = new System.Drawing.Size(118, 20);
+            this.part.TabIndex = 39;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(6, 121);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(26, 13);
+            this.label5.TabIndex = 38;
+            this.label5.Text = "Part";
+            // 
+            // duration
+            // 
+            this.duration.Location = new System.Drawing.Point(251, 148);
+            this.duration.Name = "duration";
+            this.duration.Size = new System.Drawing.Size(118, 20);
+            this.duration.TabIndex = 41;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(184, 155);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(47, 13);
+            this.label7.TabIndex = 40;
+            this.label7.Text = "Duration";
+            // 
             // ViewDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -259,24 +289,27 @@
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox Cat;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox Title;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.TextBox season;
+        private System.Windows.Forms.TextBox studio;
+        private System.Windows.Forms.TextBox numberepisodes;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox seasonnumber;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.CheckBox checkBox2;
-        private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.ListBox plot;
+        private System.Windows.Forms.CheckBox dubbecheck;
+        private System.Windows.Forms.CheckBox ongoingcheck;
+        private System.Windows.Forms.TextBox type;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.CheckBox checkBox3;
+        private System.Windows.Forms.TextBox duration;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox part;
+        private System.Windows.Forms.Label label5;
     }
 }

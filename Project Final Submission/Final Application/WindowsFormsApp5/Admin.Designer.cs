@@ -47,11 +47,11 @@
             this.studio_box = new System.Windows.Forms.ComboBox();
             this.cat_box = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.Part_text = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.Time = new System.Windows.Forms.DateTimePicker();
             this.plot_text = new System.Windows.Forms.RichTextBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.Part_text = new System.Windows.Forms.TextBox();
+            this.Duration = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // addToDb
@@ -245,13 +245,6 @@
             this.label9.TabIndex = 44;
             this.label9.Text = "Part";
             // 
-            // Part_text
-            // 
-            this.Part_text.Location = new System.Drawing.Point(255, 291);
-            this.Part_text.Name = "Part_text";
-            this.Part_text.Size = new System.Drawing.Size(69, 20);
-            this.Part_text.TabIndex = 43;
-            // 
             // label11
             // 
             this.label11.AutoSize = true;
@@ -260,15 +253,6 @@
             this.label11.Size = new System.Drawing.Size(47, 13);
             this.label11.TabIndex = 44;
             this.label11.Text = "Duration";
-            // 
-            // Time
-            // 
-            this.Time.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.Time.Location = new System.Drawing.Point(122, 291);
-            this.Time.Name = "Time";
-            this.Time.Size = new System.Drawing.Size(95, 20);
-            this.Time.TabIndex = 45;
-            this.Time.Value = new System.DateTime(2019, 11, 29, 18, 31, 0, 0);
             // 
             // plot_text
             // 
@@ -288,14 +272,30 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
+            // Part_text
+            // 
+            this.Part_text.Location = new System.Drawing.Point(255, 291);
+            this.Part_text.Name = "Part_text";
+            this.Part_text.Size = new System.Drawing.Size(69, 20);
+            this.Part_text.TabIndex = 43;
+            this.Part_text.TextChanged += new System.EventHandler(this.Part_text_TextChanged);
+            // 
+            // Duration
+            // 
+            this.Duration.Location = new System.Drawing.Point(122, 291);
+            this.Duration.Name = "Duration";
+            this.Duration.Size = new System.Drawing.Size(95, 20);
+            this.Duration.TabIndex = 48;
+            this.Duration.TextChanged += new System.EventHandler(this.textBox1_TextChanged_1);
+            // 
             // Addnew
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(352, 472);
+            this.Controls.Add(this.Duration);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.plot_text);
-            this.Controls.Add(this.Time);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.Part_text);
@@ -344,10 +344,10 @@
         private System.Windows.Forms.ComboBox studio_box;
         private System.Windows.Forms.ComboBox cat_box;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox Part_text;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.DateTimePicker Time;
         private System.Windows.Forms.RichTextBox plot_text;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox Part_text;
+        private System.Windows.Forms.TextBox Duration;
     }
 }

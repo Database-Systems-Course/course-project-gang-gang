@@ -10,9 +10,8 @@ GO
 
 CREATE TABLE User_2 (
   idUser_2 INTEGER  NOT NULL   IDENTITY ,
-  username VARCHAR(50)    ,
-  password_2 VARCHAR(50)    ,
-  type_2 INTEGER      ,
+  Rank INT    ,
+  password_2 VARCHAR(30)      ,
 PRIMARY KEY(idUser_2));
 GO
 
@@ -58,7 +57,7 @@ PRIMARY KEY(idMovies)  ,
 GO
 
 
-CREATE INDEX MovieSeries_FKIndex1 ON MovieSeries (Genre_idGenre);
+CREATE INDEX Movie Series_FKIndex1 ON MovieSeries (Genre_idGenre);
 GO
 
 
@@ -67,15 +66,15 @@ GO
 
 
 CREATE TABLE Series (
-  idShow INTEGER  NOT NULL  ,
+  idShow INTEGER  NOT NULL   IDENTITY ,
   Genre_idGenre INTEGER  NOT NULL  ,
   Studio_idStudio INTEGER  NOT NULL  ,
   Name VARCHAR(90)    ,
   Plot VARCHAR(500)    ,
   Status_2 BIT    ,
   Dubbed BIT    ,
-  NumberOfEpisodes INTEGER    ,
-  NumberOfSeasons INTEGER    ,
+  Number Of Episodes INTEGER    ,
+  Number Of Seasons INTEGER    ,
   SeasnTime VARCHAR(50)      ,
 PRIMARY KEY(idShow)    ,
   FOREIGN KEY(Studio_idStudio)

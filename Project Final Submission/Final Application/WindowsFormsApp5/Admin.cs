@@ -58,8 +58,16 @@ namespace WindowsFormsApp5
                     cmd.Parameters.AddWithValue("@plot", plot_text.Text.ToString());
                     cmd.Parameters.AddWithValue("@dubbed", dubbed_check.Checked);
                     cmd.ExecuteNonQuery();
-                    MessageBox.Show("Added Successfully!!");
 
+                    string qry2 = "insert into Part(Movieseries_idmovies,number,duration) values( (select idmovies from MovieSeries where MovieSeries.Name = @title), @part, @dur)";
+                    SqlCommand cmd2 = new SqlCommand(qry2, con);
+                    cmd2.CommandType = CommandType.Text;
+                    cmd2.Parameters.AddWithValue("@title", Title_box.Text.ToString());
+                    cmd2.Parameters.AddWithValue("@part", Part_text.Text.ToString());
+                    cmd2.Parameters.AddWithValue("@dur", Duration.Text.ToString());
+                    cmd2.ExecuteNonQuery();
+                    MessageBox.Show("Added Successfully!!");
+                    
 
 
                 }
@@ -73,7 +81,7 @@ namespace WindowsFormsApp5
             {
                 try
                 {
-                    string qry = "Insert into Series(idShow,Genre_idGenre,Studio_idStudio,Name,Plot,Status_2,Dubbed,NumberOfEpisodes,NumberOfSeasons,SeasnTime) values(45,(select idGenre from Genre where type_2=@categ ),(select idStudio from Studio where Name=@studio ),@title, @plot,@status, @dubbed, @noe,@nos,@season);";
+                    string qry = "Insert into Series(Genre_idGenre,Studio_idStudio,Name,Plot,Status_2,Dubbed,NumberOfEpisodes,NumberOfSeasons,SeasnTime) values((select idGenre from Genre where type_2=@categ ),(select idStudio from Studio where Name=@studio ),@title, @plot,@status, @dubbed, @noe,@nos,@season);";
                     SqlCommand cmd = new SqlCommand(qry, con);
                     cmd.CommandType = CommandType.Text;
                     cmd.Parameters.AddWithValue("@categ", cat_box.SelectedItem.ToString());
@@ -108,7 +116,7 @@ namespace WindowsFormsApp5
 
                 ongoing_check.Enabled = false;
                 Part_text.Enabled = true;
-               Time.Enabled = true;
+                Duration.Enabled = true;
 
                 studio_box.Enabled = false;
                 Episode_text.Enabled = false;
@@ -134,7 +142,7 @@ namespace WindowsFormsApp5
 
 
                 Part_text.Enabled = false;
-                Time.Enabled = false;
+                Duration.Enabled = false;
                 
 
             }
@@ -168,6 +176,21 @@ namespace WindowsFormsApp5
         private void button1_Click_1(object sender, EventArgs e)
         {
             this.Hide();
+        }
+
+        private void Time_ValueChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void textBox1_TextChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Part_text_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

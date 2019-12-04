@@ -85,7 +85,7 @@ namespace WindowsFormsApp5
                     {
                         if (user == 1)
                         {
-                            HomeScreen f = new HomeScreen();
+                            HomeScreen f = new HomeScreen(user);
                             f.Show();
                             this.Hide();
                             logged = true;

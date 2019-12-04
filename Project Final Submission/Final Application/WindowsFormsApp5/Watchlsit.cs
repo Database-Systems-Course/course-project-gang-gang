@@ -39,8 +39,7 @@ namespace WindowsFormsApp5
 
         private void button2_Click(object sender, EventArgs e)
         {
-            ViewDetails f = new ViewDetails();
-            f.Show();
+            
         }
 
         private void Watchlsit_Load(object sender, EventArgs e)
