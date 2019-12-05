@@ -12,6 +12,7 @@ namespace WindowsFormsApp5
 {
     public partial class HomeScreen : Form
     { int user;
+        List<string> lst;
         SqlConnection con;
         public HomeScreen(int userz) {
         
@@ -212,9 +213,103 @@ namespace WindowsFormsApp5
 
         private void Button1_Click(object sender, EventArgs e)
         {
-            // querry to add selected item from results into selected watchlist of user having userid = userz
-        }
+            lst = listBox2.SelectedItem.ToString().Split(',').ToList();
+            if (lst[3] == "Series")
+            {
+                try
+                {
+                    DBconnectioncs c = new DBconnectioncs();
+                    DataTable d = c.Select("Select * from series,Genre,studio where Genre_idgenre = idGenre and studio_idstudio=idstudio ");
+                    for (int i = 0; i < d.Rows.Count; i++)
+                    {
 
+
+                        if (d.Rows[i][3].ToString() == lst[0].ToString())
+                        {
+
+                            DBconnectioncs w = new DBconnectioncs();
+                            DataTable wd = w.Select("select * from watchlist");
+                            for (int j = 0; j < wd.Rows.Count; j++)
+                            {
+
+                                if (wd.Rows[j][2].ToString() == Watchlistbox.SelectedItem.ToString() && wd.Rows[j][1].ToString() == user.ToString())
+                                {
+
+
+                                    string qry = "insert into watchlist_has_anime values(@name ,@id)";
+                                    SqlCommand cmd = new SqlCommand(qry, con);
+                                    cmd.CommandType = CommandType.Text;
+                                    cmd.Parameters.AddWithValue("@name", wd.Rows[j][0]);
+                                  //  MessageBox.Show(wd.Rows[j][0].ToString());
+                                    ///MessageBox.Show(d.Rows[i][0].ToString());
+
+                                    cmd.Parameters.AddWithValue("@id", d.Rows[i][0]);
+                                    cmd.ExecuteNonQuery();
+
+                                }
+                            }
+
+                        }
+
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+
+                }
+
+
+            }
+            else if (lst[3] == "Movie")
+            {
+                try
+                {
+                    DBconnectioncs c = new DBconnectioncs();
+                    DataTable d = c.Select("Select * from part,movieseries,Genre,studio where Genre_idgenre = idGenre and movieseries_idmovies = idmovies");
+
+                    for (int i = 0; i < d.Rows.Count; i++)
+                    {
+
+
+                        if (d.Rows[i][6].ToString() == lst[0].ToString() && d.Rows[i][2].ToString() == lst[2].ToString())
+                        {
+                            
+                            DBconnectioncs w = new DBconnectioncs();
+                            DataTable wd = w.Select("select * from watchlist");
+                            for (int j = 0; j < wd.Rows.Count; j++)
+                            {
+
+                                if (wd.Rows[j][2].ToString() == Watchlistbox.SelectedItem.ToString() && wd.Rows[j][1].ToString() == user.ToString())
+                                {
+
+
+                                    string qry = "insert into watchlist_has_Part values(@id,@name)";
+                                    SqlCommand cmd = new SqlCommand(qry, con);
+                                    cmd.CommandType = CommandType.Text;
+                                  
+                                   // MessageBox.Show(wd.Rows[j][0].ToString());
+                                   // MessageBox.Show(d.Rows[i][0].ToString());
+
+                                    cmd.Parameters.AddWithValue("@id", d.Rows[i][1]);
+                                    cmd.Parameters.AddWithValue("@name", wd.Rows[j][0]);
+                                    cmd.ExecuteNonQuery();
+
+                                }
+                            }
+
+                        }
+
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+
+                }
+
+            }
+        }
         private void ListBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
