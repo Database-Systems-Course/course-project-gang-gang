@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HomeScreen));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.Watchlistbox = new System.Windows.Forms.ListBox();
             this.typebox = new System.Windows.Forms.ComboBox();
@@ -44,8 +45,10 @@
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
+            this.gridviewz = new System.Windows.Forms.DataGridView();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridviewz)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -53,7 +56,7 @@
             this.groupBox1.Controls.Add(this.Watchlistbox);
             this.groupBox1.Location = new System.Drawing.Point(438, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(148, 380);
+            this.groupBox1.Size = new System.Drawing.Size(148, 159);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Watch List";
@@ -63,7 +66,7 @@
             this.Watchlistbox.FormattingEnabled = true;
             this.Watchlistbox.Location = new System.Drawing.Point(13, 21);
             this.Watchlistbox.Name = "Watchlistbox";
-            this.Watchlistbox.Size = new System.Drawing.Size(127, 355);
+            this.Watchlistbox.Size = new System.Drawing.Size(127, 121);
             this.Watchlistbox.TabIndex = 0;
             this.Watchlistbox.SelectedIndexChanged += new System.EventHandler(this.ListBox1_SelectedIndexChanged);
             // 
@@ -90,10 +93,11 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.gridviewz);
             this.groupBox2.Controls.Add(this.listBox2);
             this.groupBox2.Location = new System.Drawing.Point(9, 214);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(423, 162);
+            this.groupBox2.Size = new System.Drawing.Size(577, 162);
             this.groupBox2.TabIndex = 5;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Results";
@@ -103,7 +107,7 @@
             this.listBox2.FormattingEnabled = true;
             this.listBox2.Location = new System.Drawing.Point(6, 19);
             this.listBox2.Name = "listBox2";
-            this.listBox2.Size = new System.Drawing.Size(411, 134);
+            this.listBox2.Size = new System.Drawing.Size(563, 134);
             this.listBox2.TabIndex = 1;
             this.listBox2.SelectedIndexChanged += new System.EventHandler(this.ListBox2_SelectedIndexChanged);
             // 
@@ -205,7 +209,7 @@
             // 
             // button7
             // 
-            this.button7.Location = new System.Drawing.Point(351, 382);
+            this.button7.Location = new System.Drawing.Point(503, 381);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(75, 23);
             this.button7.TabIndex = 18;
@@ -213,11 +217,21 @@
             this.button7.UseVisualStyleBackColor = true;
             this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
+            // gridviewz
+            // 
+            this.gridviewz.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridviewz.Location = new System.Drawing.Point(6, 128);
+            this.gridviewz.Name = "gridviewz";
+            this.gridviewz.Size = new System.Drawing.Size(563, 25);
+            this.gridviewz.TabIndex = 19;
+            this.gridviewz.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridviewz_CellContentClick);
+            // 
             // HomeScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(599, 416);
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.ClientSize = new System.Drawing.Size(607, 416);
             this.Controls.Add(this.button7);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.button5);
@@ -237,6 +251,7 @@
             this.Load += new System.EventHandler(this.HomeScreen_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gridviewz)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -260,6 +275,7 @@
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.DataGridView gridviewz;
     }
 }
 

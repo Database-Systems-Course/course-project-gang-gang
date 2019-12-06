@@ -14,7 +14,7 @@ namespace WindowsFormsApp5
     {
         int userz;
         string watchname;
-        public Watchlsit(int userid , string watchlistname)
+        public Watchlsit(int userid, string watchlistname)
         {
             InitializeComponent();
             userz = userid;
@@ -23,15 +23,18 @@ namespace WindowsFormsApp5
             DBconnectioncs R = new DBconnectioncs();
 
             DataTable d = c.Select("select * from watchlist_has_Anime, watchlist,series where watchlist_idwatchlist = idwatchlist and series.idshow = series_idshow;");
-            DataTable dw = R.Select("select * from watchlist_has_Part, watchlist,MovieSeries,Part where WatchList_idWatchList =idWatchList and MovieSeries.idMovies = Part_idPart and MovieSeries.idMovies = Part.MovieSeries_idMovies;");
+          
+            DataTable dw = R.Select("select * from watchlist_has_Part, watchlist,MovieSeries,Part where WatchList_idWatchList =idWatchList and MovieSeries.idMovies = MovieSeries_idMovies  and Part_idPart =idPart;");
+           // gridviewz1.DataSource = d;
             for (int i = 0; i < d.Rows.Count; i++)
+           
             {
-               
+                
                 if (d.Rows[i][3].ToString() == userz.ToString() && d.Rows[i][4].ToString() == watchname)
                 {
-                   
-                    Deets.Items.Add(d.Rows[i][8].ToString() + "  " + d.Rows[i][9].ToString() + "  " + checkGoing(d.Rows[i][10].ToString()) + "  " + checkDub(d.Rows[i][11].ToString()) + "  " + d.Rows[i][12].ToString() + "  " + d.Rows[i][13].ToString() + "  " + d.Rows[i][14].ToString() );
-                   // Deets.Items.Add(dw.Rows[i][7].ToString() + "  " + dw.Rows[i][8].ToString() + "  " + checkGoing(dw.Rows[i][9].ToString()) + "  " + checkDub(dw.Rows[i][10].ToString()) + "  " + dw.Rows[i][11].ToString() + "  " + dw.Rows[i][12].ToString() + "  " + dw.Rows[i][13].ToString());
+                    gridviewz1.DataSource = d;
+                    Deets.Items.Add(d.Rows[i][8].ToString() + "  " + d.Rows[i][9].ToString() + "  " + "  " + checkDub(d.Rows[i][11].ToString()) + " " + checkGoing(d.Rows[i][10].ToString()) + "  " + d.Rows[i][12].ToString() + "  " + d.Rows[i][13].ToString() + "  " + d.Rows[i][14].ToString());
+                    // Deets.Items.Add(dw.Rows[i][7].ToString() + "  " + dw.Rows[i][8].ToString() + "  " + checkGoing(dw.Rows[i][9].ToString()) + "  " + checkDub(dw.Rows[i][10].ToString()) + "  " + dw.Rows[i][11].ToString() + "  " + dw.Rows[i][12].ToString() + "  " + dw.Rows[i][13].ToString());
 
                 }
 
@@ -39,17 +42,25 @@ namespace WindowsFormsApp5
             for (int i = 0; i < dw.Rows.Count; i++)
             {
 
-                if (d.Rows[i][3].ToString() == userz.ToString() && d.Rows[i][4].ToString() == watchname)
+                if (dw.Rows[i][3].ToString() == userz.ToString() && dw.Rows[i][4].ToString() == watchname)
                 {
+                    // MessageBox.Show("yaa");
 
                     //Deets.Items.Add(d.Rows[i][8].ToString() + "  " + d.Rows[i][9].ToString() + "  " + checkGoing(d.Rows[i][10].ToString()) + "  " + checkDub(d.Rows[i][11].ToString()) + "  " + d.Rows[i][12].ToString() + "  " + d.Rows[i][13].ToString() + "  " + d.Rows[i][14].ToString());
-                    Deets.Items.Add(dw.Rows[i][7].ToString() + "  " + dw.Rows[i][8].ToString() + "  " + checkGoing(dw.Rows[i][9].ToString()) + "  " + checkDub(dw.Rows[i][10].ToString()) + "  " + dw.Rows[i][11].ToString() + "  " + dw.Rows[i][12].ToString() + "  " + dw.Rows[i][13].ToString());
-
+                    gridviewz1.DataSource = dw;
+                    Deets.Items.Add(dw.Rows[i][7].ToString() + "  " + dw.Rows[i][8].ToString() + "  " + checkDub(dw.Rows[i][9].ToString()) + "  " + dw.Rows[i][12].ToString()+ "  " + dw.Rows[i][13].ToString());
                 }
-
-            }
-            // run querry to show watchlist of user having userid = userz and the watchlist name as userz
+             }
+    
+        
         }
+
+        
+    
+
+
+    // run querry to show watchlist of user having userid = userz and the watchlist name as userz
+
 
         private void label1_Click(object sender, EventArgs e)
         {

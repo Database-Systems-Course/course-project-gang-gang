@@ -28,10 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Watchlsit));
             this.Deets = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.gridviewz1 = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.gridviewz1)).BeginInit();
             this.SuspendLayout();
             // 
             // Deets
@@ -74,11 +77,21 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click_1);
             // 
+            // gridviewz1
+            // 
+            this.gridviewz1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridviewz1.Location = new System.Drawing.Point(49, 93);
+            this.gridviewz1.Name = "gridviewz1";
+            this.gridviewz1.Size = new System.Drawing.Size(317, 264);
+            this.gridviewz1.TabIndex = 20;
+            // 
             // Watchlsit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(485, 369);
+            this.Controls.Add(this.gridviewz1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
@@ -86,6 +99,7 @@
             this.Name = "Watchlsit";
             this.Text = "Form2";
             this.Load += new System.EventHandler(this.Watchlsit_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.gridviewz1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -97,5 +111,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.DataGridView gridviewz1;
     }
 }

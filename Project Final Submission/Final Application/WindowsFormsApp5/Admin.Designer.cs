@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Addnew));
             this.addToDb = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -109,7 +110,7 @@
             "Series"});
             this.type_box.Location = new System.Drawing.Point(124, 40);
             this.type_box.Name = "type_box";
-            this.type_box.Size = new System.Drawing.Size(144, 21);
+            this.type_box.Size = new System.Drawing.Size(200, 21);
             this.type_box.TabIndex = 15;
             this.type_box.SelectedIndexChanged += new System.EventHandler(this.type_box_SelectedIndexChanged);
             // 
@@ -126,14 +127,14 @@
             // 
             this.Episode_text.Location = new System.Drawing.Point(123, 196);
             this.Episode_text.Name = "Episode_text";
-            this.Episode_text.Size = new System.Drawing.Size(145, 20);
+            this.Episode_text.Size = new System.Drawing.Size(201, 20);
             this.Episode_text.TabIndex = 30;
             // 
             // Numberofseasons_text
             // 
             this.Numberofseasons_text.Location = new System.Drawing.Point(122, 226);
             this.Numberofseasons_text.Name = "Numberofseasons_text";
-            this.Numberofseasons_text.Size = new System.Drawing.Size(146, 20);
+            this.Numberofseasons_text.Size = new System.Drawing.Size(202, 20);
             this.Numberofseasons_text.TabIndex = 31;
             this.Numberofseasons_text.TextChanged += new System.EventHandler(this.Numberofseasons_text_TextChanged);
             // 
@@ -166,7 +167,7 @@
             "Winter"});
             this.season_box.Location = new System.Drawing.Point(123, 256);
             this.season_box.Name = "season_box";
-            this.season_box.Size = new System.Drawing.Size(145, 21);
+            this.season_box.Size = new System.Drawing.Size(201, 21);
             this.season_box.TabIndex = 35;
             this.season_box.SelectedIndexChanged += new System.EventHandler(this.season_box_SelectedIndexChanged);
             // 
@@ -174,7 +175,7 @@
             // 
             this.Title_box.Location = new System.Drawing.Point(124, 81);
             this.Title_box.Name = "Title_box";
-            this.Title_box.Size = new System.Drawing.Size(144, 20);
+            this.Title_box.Size = new System.Drawing.Size(200, 20);
             this.Title_box.TabIndex = 23;
             // 
             // label8
@@ -214,7 +215,7 @@
             "Ghibli"});
             this.studio_box.Location = new System.Drawing.Point(124, 121);
             this.studio_box.Name = "studio_box";
-            this.studio_box.Size = new System.Drawing.Size(144, 21);
+            this.studio_box.Size = new System.Drawing.Size(200, 21);
             this.studio_box.TabIndex = 40;
             this.studio_box.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
@@ -234,7 +235,7 @@
             "Fan-Service"});
             this.cat_box.Location = new System.Drawing.Point(124, 162);
             this.cat_box.Name = "cat_box";
-            this.cat_box.Size = new System.Drawing.Size(144, 21);
+            this.cat_box.Size = new System.Drawing.Size(200, 21);
             this.cat_box.TabIndex = 41;
             this.cat_box.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             // 
@@ -294,6 +295,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(352, 472);
             this.Controls.Add(this.Duration);
             this.Controls.Add(this.button1);

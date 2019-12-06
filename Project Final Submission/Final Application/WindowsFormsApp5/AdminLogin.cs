@@ -77,34 +77,40 @@ namespace WindowsFormsApp5
             
             for (int i = 0; i < d.Rows.Count; i++)
             {
-              // MessageBox.Show(d.Rows[i][1].ToString());
-               
-                if (d.Rows[i][1].ToString() == textBox1.Text.ToString())
+                // MessageBox.Show(d.Rows[i][1].ToString());
+                try
                 {
-                    if (d.Rows[i][2].ToString() == textBox2.Text.ToString())
+                    if (d.Rows[i][1].ToString() == textBox1.Text.ToString())
                     {
-                        if (user == 1)
+                        try
                         {
-                            HomeScreen f = new HomeScreen(Int32.Parse(d.Rows[i][0].ToString()));
-                            f.Show();
-                            this.Hide();
-                            logged = true;
-                            return;
+                            if (d.Rows[i][2].ToString() == textBox2.Text.ToString())
+                            {
+                                if (user == 1)
+                                {
+                                    HomeScreen f = new HomeScreen(Int32.Parse(d.Rows[i][0].ToString()));
+                                    f.Show();
+                                    this.Hide();
+                                    logged = true;
+                                    return;
+                                }
+                                //For user
+                                else if (user == 0)
+                                {
+                                    Addnew f = new Addnew();
+                                    f.Show();
+                                    this.Hide();
+                                    logged = true;
+                                    return;
+
+                                }
+                            }
                         }
-                        //For user
-                        else if (user == 0)
-                        {
-                            Addnew f = new Addnew();
-                            f.Show();
-                            this.Hide();
-                            logged = true;
-                            return;
-                            
-                        }
+                        catch { MessageBox.Show("Please enter your password"); }
+
                     }
-                                
                 }
-               
+                catch { MessageBox.Show("Please enter your username"); }               
 
             }
             if (logged != true)

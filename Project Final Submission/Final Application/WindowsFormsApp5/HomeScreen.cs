@@ -122,7 +122,10 @@ namespace WindowsFormsApp5
                         {
                             DBconnectioncs c = new DBconnectioncs();
                             listBox2.Items.Add("Title                   |                  genre                       || part");
+                            
+                            
                             DataTable d = c.Select("Select name,part.number,type_2 from part,MovieSeries,Genre where Genre_idgenre = idGenre and Movieseries_idmovies = idmovies");
+                            gridviewz.DataSource = d;
                             for (int i = 0; i < d.Rows.Count; i++)
                             {
 
@@ -145,7 +148,8 @@ namespace WindowsFormsApp5
                         {
                             if (f.Rows[i][6].ToString().ToUpper().Contains(titletext.Text.ToString().ToUpper()))
                             {
-                                MessageBox.Show(f.Rows[i][3].ToString());
+                                gridviewz.DataSource = f;
+                                //MessageBox.Show(f.Rows[i][3].ToString());
                                 listBox2.Items.Add(f.Rows[i][6].ToString() + "," + f.Rows[i][10].ToString() + "," + f.Rows[i][2].ToString() + ",Movie");
                             }
                         }
@@ -162,7 +166,7 @@ namespace WindowsFormsApp5
                        // MessageBox.Show(f.Rows[i][10].ToString());
                         if (f.Rows[i][10].ToString().ToLower().Contains(catbox.SelectedItem.ToString().ToLower()))
                         {
-                            
+                            gridviewz.DataSource = f;
                             listBox2.Items.Add(f.Rows[i][6].ToString() + "," + f.Rows[i][10].ToString() + "," + f.Rows[i][2].ToString() + ",Movie");
                         }
                     }
@@ -183,7 +187,7 @@ namespace WindowsFormsApp5
                             DataTable d = c.Select("Select name,numberofepisodes,type_2 from series,Genre where Genre_idgenre = idGenre");
                             for (int i = 0; i < d.Rows.Count; i++)
                             {
-
+                                gridviewz.DataSource = d;
                                 listBox2.Items.Add(d.Rows[i][0].ToString() + "," + d.Rows[i][2].ToString() + "," + d.Rows[i][1].ToString() + ",Series");
 
                             }
@@ -203,7 +207,8 @@ namespace WindowsFormsApp5
                         {
                             if (d.Rows[i][3].ToString().ToUpper().Contains(titletext.Text.ToString().ToUpper()))
                             {
-                             //   MessageBox.Show(d.Rows[i][3].ToString());
+                                //   MessageBox.Show(d.Rows[i][3].ToString());
+                                gridviewz.DataSource = d;
                                 listBox2.Items.Add(d.Rows[i][3].ToString() + "," + d.Rows[i][11].ToString() + "," + d.Rows[i][7].ToString() + ",Series");
                             }
                         }
@@ -218,7 +223,8 @@ namespace WindowsFormsApp5
                     {
                         if (d.Rows[i][11].ToString().ToUpper().Contains(catbox.SelectedItem.ToString().ToUpper()))
                         {
-                           // MessageBox.Show(d.Rows[i][3].ToString());
+                            // MessageBox.Show(d.Rows[i][3].ToString());
+                            gridviewz.DataSource = d;
                             listBox2.Items.Add(d.Rows[i][3].ToString() + "," + d.Rows[i][11].ToString() + "," + d.Rows[i][7].ToString() + ",Series");
                         }
                     }
@@ -241,7 +247,7 @@ namespace WindowsFormsApp5
                             listBox2.Items.Add("Title                   |                  genre                      | Episodes/Part");
                             for (int i = 0; i < d.Rows.Count; i++)
                             {
-
+                                gridviewz.DataSource = d;
                                 listBox2.Items.Add(d.Rows[i][0].ToString() + "," + d.Rows[i][2].ToString() + "," + d.Rows[i][1].ToString() + ",Series");
 
                             }
@@ -249,6 +255,7 @@ namespace WindowsFormsApp5
                             DataTable g = f.Select("Select name,number,type_2 from part,MovieSeries,Genre where Genre_idgenre = idGenre and Movieseries_idmovies = idmovies");
                             for (int i = 0; i < g.Rows.Count; i++)
                             {
+                                gridviewz.DataSource = d;
                                 listBox2.Items.Add(g.Rows[i][0].ToString() + "," + g.Rows[i][2].ToString() + "," + g.Rows[i][1].ToString() + ",Movie");
                             }
                         }
@@ -267,7 +274,8 @@ namespace WindowsFormsApp5
                         {
                             if (d.Rows[i][11].ToString().ToUpper().Contains(catbox.SelectedItem.ToString().ToUpper()))
                             {
-                              //  MessageBox.Show(d.Rows[i][3].ToString());
+                                //  MessageBox.Show(d.Rows[i][3].ToString());
+                                gridviewz.DataSource = d;
                                 listBox2.Items.Add(d.Rows[i][3].ToString() + "," + d.Rows[i][11].ToString() + "," + d.Rows[i][7].ToString() + ",Series");
                             }
                         }
@@ -280,7 +288,7 @@ namespace WindowsFormsApp5
                             //MessageBox.Show(f.Rows[i][10].ToString());
                             if (f.Rows[i][10].ToString().ToLower().Contains(catbox.SelectedItem.ToString().ToLower()))
                             {
-
+                                gridviewz.DataSource = f;
                                 listBox2.Items.Add(f.Rows[i][6].ToString() + "," + f.Rows[i][10].ToString() + "," + f.Rows[i][2].ToString() + ",Movie");
                             }
                         }
@@ -299,7 +307,8 @@ namespace WindowsFormsApp5
                     {
                         if (d.Rows[i][3].ToString().ToUpper().Contains(titletext.Text.ToString().ToUpper()))
                         {
-                            MessageBox.Show(d.Rows[i][3].ToString());
+                            // MessageBox.Show(d.Rows[i][3].ToString());
+                            gridviewz.DataSource = d;
                             listBox2.Items.Add(d.Rows[i][3].ToString()+"," + d.Rows[i][11].ToString() + "," + d.Rows[i][7].ToString() + ",Series");
                         }
                     }
@@ -312,7 +321,8 @@ namespace WindowsFormsApp5
                     {
                         if (f.Rows[i][6].ToString().ToUpper().Contains(titletext.Text.ToString().ToUpper()))
                         {
-                            MessageBox.Show(f.Rows[i][3].ToString());
+                            //MessageBox.Show(f.Rows[i][3].ToString());
+                            gridviewz.DataSource = f;
                             listBox2.Items.Add(f.Rows[i][6].ToString() + "," + f.Rows[i][10].ToString() + "," + f.Rows[i][2].ToString() + ",Movie");
                         }
                     }
@@ -435,7 +445,7 @@ namespace WindowsFormsApp5
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("Please select watchlist to add to");
+                        MessageBox.Show("This item is already in your watchlist");
 
                     }
 
@@ -462,6 +472,11 @@ namespace WindowsFormsApp5
         }
 
         private void catbox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void gridviewz_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }

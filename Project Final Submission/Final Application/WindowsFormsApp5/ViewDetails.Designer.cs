@@ -28,7 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ViewDetails));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.duration = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.part = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.dubbecheck = new System.Windows.Forms.CheckBox();
             this.ongoingcheck = new System.Windows.Forms.CheckBox();
             this.type = new System.Windows.Forms.TextBox();
@@ -47,15 +52,12 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.part = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.duration = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("groupBox1.BackgroundImage")));
             this.groupBox1.Controls.Add(this.duration);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.part);
@@ -84,6 +86,38 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // duration
+            // 
+            this.duration.Location = new System.Drawing.Point(251, 148);
+            this.duration.Name = "duration";
+            this.duration.Size = new System.Drawing.Size(118, 20);
+            this.duration.TabIndex = 41;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(184, 155);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(47, 13);
+            this.label7.TabIndex = 40;
+            this.label7.Text = "Duration";
+            // 
+            // part
+            // 
+            this.part.Location = new System.Drawing.Point(52, 118);
+            this.part.Name = "part";
+            this.part.Size = new System.Drawing.Size(118, 20);
+            this.part.TabIndex = 39;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(6, 121);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(26, 13);
+            this.label5.TabIndex = 38;
+            this.label5.Text = "Part";
             // 
             // dubbecheck
             // 
@@ -238,42 +272,11 @@
             this.label1.TabIndex = 13;
             this.label1.Text = "Type";
             // 
-            // part
-            // 
-            this.part.Location = new System.Drawing.Point(52, 118);
-            this.part.Name = "part";
-            this.part.Size = new System.Drawing.Size(118, 20);
-            this.part.TabIndex = 39;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(6, 121);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(26, 13);
-            this.label5.TabIndex = 38;
-            this.label5.Text = "Part";
-            // 
-            // duration
-            // 
-            this.duration.Location = new System.Drawing.Point(251, 148);
-            this.duration.Name = "duration";
-            this.duration.Size = new System.Drawing.Size(118, 20);
-            this.duration.TabIndex = 41;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(184, 155);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(47, 13);
-            this.label7.TabIndex = 40;
-            this.label7.Text = "Duration";
-            // 
             // ViewDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(482, 434);
             this.Controls.Add(this.groupBox1);
             this.Enabled = false;

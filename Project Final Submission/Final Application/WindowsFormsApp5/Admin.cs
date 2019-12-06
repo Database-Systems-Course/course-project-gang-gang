@@ -12,7 +12,7 @@ using System.Data.Common;
 
 namespace WindowsFormsApp5
 {
-    public partial class Addnew : Form 
+    public partial class Addnew : Form
     {
         SqlConnection con;
         public Addnew()
@@ -20,7 +20,7 @@ namespace WindowsFormsApp5
             InitializeComponent();
             con = new SqlConnection();
             con.ConnectionString = " Data Source = AHSANPC; Initial Catalog = A8; Integrated Security = True";
-            con.Open();      
+            con.Open();
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -45,66 +45,83 @@ namespace WindowsFormsApp5
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (type_box.SelectedItem.ToString() == "Movies")
+            try
             {
-                try
+                if (type_box.SelectedItem.ToString() == "Movies")
                 {
+                    try
+                    {
+                        if (Title_box.Text != "" && plot_text.Text != "" && Duration.Text != "" && Part_text.Text != "")
+                        {
 
-                    string qry = "Insert into MovieSeries(Genre_idGenre,Name,Plot,Dubbed) values((select idGenre from Genre where type_2= @categ ), @title  ,@plot    ,@dubbed  );";
-                    SqlCommand cmd = new SqlCommand(qry, con);
-                    cmd.CommandType = CommandType.Text;
-                    cmd.Parameters.AddWithValue("@categ", cat_box.SelectedItem.ToString());
-                    cmd.Parameters.AddWithValue("@title", Title_box.Text.ToString());
-                    cmd.Parameters.AddWithValue("@plot", plot_text.Text.ToString());
-                    cmd.Parameters.AddWithValue("@dubbed", dubbed_check.Checked);
-                    cmd.ExecuteNonQuery();
+                            string qry = "Insert into MovieSeries(Genre_idGenre,Name,Plot,Dubbed) values((select idGenre from Genre where type_2= @categ ), @title  ,@plot    ,@dubbed  );";
+                            SqlCommand cmd = new SqlCommand(qry, con);
+                            cmd.CommandType = CommandType.Text;
+                            cmd.Parameters.AddWithValue("@categ", cat_box.SelectedItem.ToString());
+                            cmd.Parameters.AddWithValue("@title", Title_box.Text.ToString());
+                            cmd.Parameters.AddWithValue("@plot", plot_text.Text.ToString());
+                            cmd.Parameters.AddWithValue("@dubbed", dubbed_check.Checked);
+                            cmd.ExecuteNonQuery();
 
-                    string qry2 = "insert into Part(Movieseries_idmovies,number,duration) values( (select idmovies from MovieSeries where MovieSeries.Name = @title), @part, @dur)";
-                    SqlCommand cmd2 = new SqlCommand(qry2, con);
-                    cmd2.CommandType = CommandType.Text;
-                    cmd2.Parameters.AddWithValue("@title", Title_box.Text.ToString());
-                    cmd2.Parameters.AddWithValue("@part", Part_text.Text.ToString());
-                    cmd2.Parameters.AddWithValue("@dur", Duration.Text.ToString());
-                    cmd2.ExecuteNonQuery();
-                    MessageBox.Show("Added Successfully!!");
-                    
+                            string qry2 = "insert into Part(Movieseries_idmovies,number,duration) values( (select idmovies from MovieSeries where MovieSeries.Name = @title), @part, @dur)";
+                            SqlCommand cmd2 = new SqlCommand(qry2, con);
+                            cmd2.CommandType = CommandType.Text;
+                            cmd2.Parameters.AddWithValue("@title", Title_box.Text.ToString());
+                            cmd2.Parameters.AddWithValue("@part", Part_text.Text.ToString());
+                            cmd2.Parameters.AddWithValue("@dur", Duration.Text.ToString());
+                            cmd2.ExecuteNonQuery();
+                            MessageBox.Show("Added Successfully!!");
 
+                        }
+                        else
+                        {
+                            MessageBox.Show("Please enter all the required fields");
+                        }
 
+                        }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Please enter all the required fields");
+
+                    }
                 }
-                catch (Exception ex)
+                else if (type_box.SelectedItem.ToString() == "Series")
                 {
-                    MessageBox.Show(ex.Message);
+                    try
+                    {
+                        if (Title_box.Text != "" && plot_text.Text != "" && Episode_text.Text != "" && Numberofseasons_text.Text != "")
+                        {
 
+                            string qry = "Insert into Series(Genre_idGenre,Studio_idStudio,Name,Plot,Status_2,Dubbed,NumberOfEpisodes,NumberOfSeasons,SeasnTime) values((select idGenre from Genre where type_2=@categ ),(select idStudio from Studio where Name=@studio ),@title, @plot,@status, @dubbed, @noe,@nos,@season);";
+                            SqlCommand cmd = new SqlCommand(qry, con);
+                            cmd.CommandType = CommandType.Text;
+                            cmd.Parameters.AddWithValue("@categ", cat_box.SelectedItem.ToString());
+                            cmd.Parameters.AddWithValue("@title", Title_box.Text.ToString());
+                            cmd.Parameters.AddWithValue("@plot", plot_text.Text.ToString());
+                            cmd.Parameters.AddWithValue("@dubbed", dubbed_check.Checked);
+                            cmd.Parameters.AddWithValue("@studio", studio_box.SelectedItem.ToString());
+                            cmd.Parameters.AddWithValue("@status", ongoing_check.Checked);
+                            cmd.Parameters.AddWithValue("@noe", Episode_text.Text.ToString());
+                            cmd.Parameters.AddWithValue("@nos", Numberofseasons_text.Text.ToString());
+                            cmd.Parameters.AddWithValue("@season", season_box.SelectedItem.ToString());
+                            cmd.ExecuteNonQuery();
+                            MessageBox.Show("Added Successfully!!");
+                        }
+                        else {
+                          MessageBox.Show("Please enter all the required fields");
+
+                        
+                    }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Please enter all the required fields");
+
+                    }
                 }
             }
-            else if (type_box.SelectedItem.ToString() == "Series")
-            {
-                try
-                {
-                    string qry = "Insert into Series(Genre_idGenre,Studio_idStudio,Name,Plot,Status_2,Dubbed,NumberOfEpisodes,NumberOfSeasons,SeasnTime) values((select idGenre from Genre where type_2=@categ ),(select idStudio from Studio where Name=@studio ),@title, @plot,@status, @dubbed, @noe,@nos,@season);";
-                    SqlCommand cmd = new SqlCommand(qry, con);
-                    cmd.CommandType = CommandType.Text;
-                    cmd.Parameters.AddWithValue("@categ", cat_box.SelectedItem.ToString());
-                    cmd.Parameters.AddWithValue("@title", Title_box.Text.ToString());
-                    cmd.Parameters.AddWithValue("@plot", plot_text.Text.ToString());
-                    cmd.Parameters.AddWithValue("@dubbed", dubbed_check.Checked);
-                    cmd.Parameters.AddWithValue("@studio", studio_box.SelectedItem.ToString());
-                    cmd.Parameters.AddWithValue("@status", ongoing_check.Checked);
-                    cmd.Parameters.AddWithValue("@noe", Episode_text.Text.ToString());
-                    cmd.Parameters.AddWithValue("@nos", Numberofseasons_text.Text.ToString());
-                    cmd.Parameters.AddWithValue("@season", season_box.SelectedItem.ToString());
-                    cmd.ExecuteNonQuery();
-                    MessageBox.Show("Added Successfully!!");
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-
-                }
-            }
+            catch { MessageBox.Show("Please enter all the required fields"); }
         }
-
-
         private void type_box_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (type_box.SelectedItem.ToString() == "Movies")

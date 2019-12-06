@@ -30,6 +30,7 @@ namespace WindowsFormsApp5
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainScreen));
             this.UserButton = new System.Windows.Forms.Button();
             this.AdminButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -72,6 +73,7 @@ namespace WindowsFormsApp5
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(449, 248);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.AdminButton);
