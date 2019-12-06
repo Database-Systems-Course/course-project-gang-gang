@@ -40,7 +40,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
@@ -122,17 +121,20 @@
             this.catbox.FormattingEnabled = true;
             this.catbox.Items.AddRange(new object[] {
             "Horror",
-            "Comedy",
-            "Slice of Life",
-            "Robot",
+            "Animated",
             "Action",
+            "Shohnen",
+            "Drama",
             "Romance",
-            "Gore",
-            "Drama"});
+            "Cowboy",
+            "Mystery",
+            "Sci-Fi",
+            "Fan-Service"});
             this.catbox.Location = new System.Drawing.Point(81, 119);
             this.catbox.Name = "catbox";
             this.catbox.Size = new System.Drawing.Size(144, 21);
             this.catbox.TabIndex = 9;
+            this.catbox.SelectedIndexChanged += new System.EventHandler(this.catbox_SelectedIndexChanged);
             // 
             // titletext
             // 
@@ -140,6 +142,7 @@
             this.titletext.Name = "titletext";
             this.titletext.Size = new System.Drawing.Size(144, 20);
             this.titletext.TabIndex = 10;
+            this.titletext.TextChanged += new System.EventHandler(this.titletext_TextChanged);
             // 
             // label4
             // 
@@ -170,16 +173,6 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.Button2_Click);
             // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(300, 69);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(132, 23);
-            this.button3.TabIndex = 14;
-            this.button3.Text = "Delete Watchlist";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
             // button4
             // 
             this.button4.Location = new System.Drawing.Point(162, 185);
@@ -192,7 +185,7 @@
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(300, 107);
+            this.button5.Location = new System.Drawing.Point(300, 67);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(132, 23);
             this.button5.TabIndex = 16;
@@ -202,7 +195,7 @@
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(300, 146);
+            this.button6.Location = new System.Drawing.Point(300, 102);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(132, 23);
             this.button6.TabIndex = 17;
@@ -218,6 +211,7 @@
             this.button7.TabIndex = 18;
             this.button7.Text = "Close";
             this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // HomeScreen
             // 
@@ -228,7 +222,6 @@
             this.Controls.Add(this.button6);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label4);
@@ -263,7 +256,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button6;

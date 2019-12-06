@@ -85,7 +85,7 @@ namespace WindowsFormsApp5
                     {
                         if (user == 1)
                         {
-                            HomeScreen f = new HomeScreen(user);
+                            HomeScreen f = new HomeScreen(Int32.Parse(d.Rows[i][0].ToString()));
                             f.Show();
                             this.Hide();
                             logged = true;
@@ -127,6 +127,14 @@ namespace WindowsFormsApp5
 
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            MainScreen f = new MainScreen();
+            f.Show();
 
         }
     }

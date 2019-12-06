@@ -16,21 +16,38 @@ namespace WindowsFormsApp5
         string watchname;
         public Watchlsit(int userid , string watchlistname)
         {
+            InitializeComponent();
             userz = userid;
             watchname = watchlistname;
             DBconnectioncs c = new DBconnectioncs();
-            DataTable d = c.Select("select * from watchlist_has_part, watchlist_has_series where part.watchlist_idwatchlist = idwatchlist and series.watchlist_idwatchlist = idwatchlist");
+            DBconnectioncs R = new DBconnectioncs();
+
+            DataTable d = c.Select("select * from watchlist_has_Anime, watchlist,series where watchlist_idwatchlist = idwatchlist and series.idshow = series_idshow;");
+            DataTable dw = R.Select("select * from watchlist_has_Part, watchlist,MovieSeries,Part where WatchList_idWatchList =idWatchList and MovieSeries.idMovies = Part_idPart and MovieSeries.idMovies = Part.MovieSeries_idMovies;");
             for (int i = 0; i < d.Rows.Count; i++)
             {
-                if (d.Rows[i][0].ToString() == userz.ToString() && d.Rows[i][1].ToString() == watchname)
+               
+                if (d.Rows[i][3].ToString() == userz.ToString() && d.Rows[i][4].ToString() == watchname)
                 {
-                    listBox1.Items.Add(d.Rows[i][2].ToString());
+                   
+                    Deets.Items.Add(d.Rows[i][8].ToString() + "  " + d.Rows[i][9].ToString() + "  " + checkGoing(d.Rows[i][10].ToString()) + "  " + checkDub(d.Rows[i][11].ToString()) + "  " + d.Rows[i][12].ToString() + "  " + d.Rows[i][13].ToString() + "  " + d.Rows[i][14].ToString() );
+                   // Deets.Items.Add(dw.Rows[i][7].ToString() + "  " + dw.Rows[i][8].ToString() + "  " + checkGoing(dw.Rows[i][9].ToString()) + "  " + checkDub(dw.Rows[i][10].ToString()) + "  " + dw.Rows[i][11].ToString() + "  " + dw.Rows[i][12].ToString() + "  " + dw.Rows[i][13].ToString());
+
                 }
+
             }
-                
-          
-            
-            InitializeComponent();
+            for (int i = 0; i < dw.Rows.Count; i++)
+            {
+
+                if (d.Rows[i][3].ToString() == userz.ToString() && d.Rows[i][4].ToString() == watchname)
+                {
+
+                    //Deets.Items.Add(d.Rows[i][8].ToString() + "  " + d.Rows[i][9].ToString() + "  " + checkGoing(d.Rows[i][10].ToString()) + "  " + checkDub(d.Rows[i][11].ToString()) + "  " + d.Rows[i][12].ToString() + "  " + d.Rows[i][13].ToString() + "  " + d.Rows[i][14].ToString());
+                    Deets.Items.Add(dw.Rows[i][7].ToString() + "  " + dw.Rows[i][8].ToString() + "  " + checkGoing(dw.Rows[i][9].ToString()) + "  " + checkDub(dw.Rows[i][10].ToString()) + "  " + dw.Rows[i][11].ToString() + "  " + dw.Rows[i][12].ToString() + "  " + dw.Rows[i][13].ToString());
+
+                }
+
+            }
             // run querry to show watchlist of user having userid = userz and the watchlist name as userz
         }
 
@@ -46,9 +63,16 @@ namespace WindowsFormsApp5
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            var confirmResult = MessageBox.Show("Do you really want to delete this Watchlist?", "Confirm", MessageBoxButtons.YesNo);
+            if (confirmResult == DialogResult.Yes)
+            {
+                var confirmresult = MessageBox.Show("Are you sure you want to delete this?", "Confirm", MessageBoxButtons.YesNo);
+                if (confirmresult == DialogResult.Yes)
+                {
+                    Deets.Items.Remove(Deets.SelectedItem.ToString());
+                }
+            }
         }
-
         private void button2_Click(object sender, EventArgs e)
         {
             
@@ -56,6 +80,38 @@ namespace WindowsFormsApp5
 
         private void Watchlsit_Load(object sender, EventArgs e)
         {
+
+        }
+
+        public string checkGoing(string a)
+        {
+            if (a=="True")
+            {
+                return ("Ongoing");
+            }
+            else
+            {
+                return ("Finished");
+            }
+        }
+
+        public string checkDub(string a)
+        {
+            if (a=="True")
+            {
+                return ("Dubbed");
+            }
+            else
+            {
+                return ("Not Dubbed");
+            }
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
+            //HomeScreen f = new HomeScreen(userz);
+            //f.Show();
 
         }
     }

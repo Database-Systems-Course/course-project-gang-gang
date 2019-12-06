@@ -223,13 +223,15 @@
             this.cat_box.FormattingEnabled = true;
             this.cat_box.Items.AddRange(new object[] {
             "Horror",
-            "Comedy",
-            "Slice of Life",
-            "Robot",
+            "Animated",
             "Action",
+            "Shohnen",
+            "Drama",
             "Romance",
-            "Gore",
-            "Drama"});
+            "Cowboy",
+            "Mystery",
+            "Sci-Fi",
+            "Fan-Service"});
             this.cat_box.Location = new System.Drawing.Point(124, 162);
             this.cat_box.Name = "cat_box";
             this.cat_box.Size = new System.Drawing.Size(144, 21);

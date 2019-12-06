@@ -176,6 +176,8 @@ namespace WindowsFormsApp5
         private void button1_Click_1(object sender, EventArgs e)
         {
             this.Hide();
+            MainScreen f =new  MainScreen();
+            f.Show();
         }
 
         private void Time_ValueChanged(object sender, EventArgs e)
