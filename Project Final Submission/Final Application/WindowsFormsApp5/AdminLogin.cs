@@ -11,6 +11,7 @@ namespace WindowsFormsApp5
         {
             InitializeComponent();
             user = a;
+            
             try
             {
                 //DBconnectioncs c = new DBconnectioncs();
@@ -39,11 +40,19 @@ namespace WindowsFormsApp5
                 //MessageBox.Show("Record has been Added successfully!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             }
+
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
 
             }
+            MessageBox.Show("Login Succesful");
+            MessageBox.Show("Please fill in all required details");
+            MessageBox.Show("Item has been added succesfully");
+            MessageBox.Show("This item is already in your watchlist");
+            MessageBox.Show("Item has been added to watchist");
+            var confirmResult = MessageBox.Show("Do you really want to delete this Watchlist?", "Confirm", MessageBoxButtons.YesNo);
+           
 
         }
 
